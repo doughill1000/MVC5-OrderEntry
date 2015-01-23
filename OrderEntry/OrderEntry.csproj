@@ -205,8 +205,9 @@
     <Compile Include="Models\Orders\OrderViewModel.cs" />
     <Compile Include="Models\PartialClasses.cs" />
     <Compile Include="Models\Repository\IOrderEntryRepository.cs" />
+    <Compile Include="Models\Repository\ITransprintRepository.cs" />
     <Compile Include="Models\Repository\OrderEntryRepository.cs" />
-    <Compile Include="Models\Repository\Transprint.cs" />
+    <Compile Include="Models\Repository\TransprintRepository.cs" />
     <Compile Include="Models\Transprint.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -222,6 +223,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Transprint.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\TransprintTables\TransprintViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

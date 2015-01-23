@@ -10,12 +10,12 @@ namespace OrderEntry.Models
     public class OrderMetadata
     {
         [DisplayName("Created Date")]
-        [DisplayFormat(DataFormatString = "{0:MM/dd}")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}",ApplyFormatInEditMode=true)]
         public Nullable<System.DateTime> ODATE { get; set; }
 
         [Required(ErrorMessage="Required")]
         [DisplayName("Ship Date")]
-        [DisplayFormat(DataFormatString = "{0:MM/dd}")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}",ApplyFormatInEditMode=true)]
         public Nullable<System.DateTime> SDATE { get; set; }
 
         [Required]

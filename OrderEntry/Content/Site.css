@@ -41,12 +41,6 @@ input[type="checkbox"].input-validation-error {
     display: none;
 }
 
-.navbar-header{
-    background: url(../Images/airdye_solutions.jpg) no-repeat;
-    display:block;
-    text-indent:-9999px;
-}
-
 .CreateHeader{
     font-size:xx-large;
     font-family:Calibri;
