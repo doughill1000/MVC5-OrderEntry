@@ -26,6 +26,11 @@ namespace OrderEntry.Models.Repository
         void Dispose();
 
         /// <summary>
+        /// Edits the specified order
+        /// </summary>
+        void Edit(Order order);
+
+        /// <summary>
         /// Returns a list of all orders
         /// </summary>
         /// <returns>A list of all orders</returns>
@@ -43,5 +48,7 @@ namespace OrderEntry.Models.Repository
         /// </summary>
         /// <param name="order">The order to update</param>
         void Update(Order order);
+
+        
     }
 }

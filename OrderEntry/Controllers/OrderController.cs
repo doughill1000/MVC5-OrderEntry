@@ -13,14 +13,22 @@ namespace OrderEntry.Controllers
 {
     public class OrderController : Controller
     {
-        private OrderEntryEntities db = new OrderEntryEntities();
+        private IOrderEntryRepository Repository;
 
-        private IOrderEntryRepository orderRepository;
+        public OrderController()
+            :this(new OrderEntryRepository())
+        {
+        }
+
+        public OrderController(IOrderEntryRepository Repository)
+        {
+            this.Repository = Repository;
+        }
 
         // GET: /Order/
         public ActionResult Index()
         {
-            return View(db.Orders.ToList());
+            return View(Repository.GetAll());
         }
 
         // GET: /Order/Details/5
@@ -30,7 +38,7 @@ namespace OrderEntry.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
+            Order order = Repository.GetById(id);
             if (order == null)
             {
                 return HttpNotFound();
@@ -54,8 +62,7 @@ namespace OrderEntry.Controllers
             if (ModelState.IsValid)
             {
                 order.ID = Guid.NewGuid();
-                db.Orders.Add(order);
-                db.SaveChanges();
+                Repository.Create(order);
                 return RedirectToAction("Index");
             }
 
@@ -69,7 +76,7 @@ namespace OrderEntry.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
+            Order order = Repository.GetById(id);
             if (order == null)
             {
                 return HttpNotFound();
@@ -86,8 +93,7 @@ namespace OrderEntry.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(order).State = EntityState.Modified;
-                db.SaveChanges();
+                Repository.Edit(order);
                 return RedirectToAction("Index");
             }
             return View(order);
@@ -100,7 +106,7 @@ namespace OrderEntry.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
+            Order order = Repository.GetById(id);
             if (order == null)
             {
                 return HttpNotFound();
@@ -113,9 +119,7 @@ namespace OrderEntry.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            Order order = db.Orders.Find(id);
-            db.Orders.Remove(order);
-            db.SaveChanges();
+            Repository.Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -123,7 +127,7 @@ namespace OrderEntry.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                Repository.Dispose();
             }
             base.Dispose(disposing);
         }
