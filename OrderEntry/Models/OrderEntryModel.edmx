@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OrderEntryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LineItem">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="LINENO" />
+          </Key>
+          <Property Name="OrderID" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="LINENO" Type="float" Nullable="false" />
+          <Property Name="CWAY" Type="varchar" MaxLength="14" />
+          <Property Name="DESNO" Type="varchar" MaxLength="7" />
+          <Property Name="DESNA" Type="varchar" MaxLength="30" />
+          <Property Name="CITEM" Type="varchar" MaxLength="30" />
+          <Property Name="CWAYNO" Type="varchar" MaxLength="6" />
+          <Property Name="COLORNO" Type="varchar" MaxLength="2" />
+          <Property Name="COLOR" Type="varchar" MaxLength="15" />
+          <Property Name="SUBNO" Type="varchar" MaxLength="2" />
+          <Property Name="PTYPE" Type="varchar" MaxLength="15" />
+          <Property Name="PWIDTH" Type="varchar" MaxLength="2" />
+          <Property Name="PWEIGHT" Type="varchar" MaxLength="2" />
+          <Property Name="TNUMBER" Type="float" />
+          <Property Name="TNOCWAY" Type="varchar" MaxLength="21" />
+          <Property Name="MCHINECD" Type="varchar" MaxLength="2" />
+          <Property Name="PRICE" Type="float" />
+          <Property Name="SPLICE" Type="varchar" MaxLength="2" />
+          <Property Name="SPLICE_PRICE" Type="float" />
+          <Property Name="SPLICE_QTY" Type="float" />
+          <Property Name="SPLICE_WIDTH" Type="float" />
+          <Property Name="OQTY" Type="float" />
+          <Property Name="JEMTRS" Type="float" />
+          <Property Name="JEMTRS_SPLICED" Type="float" />
+          <Property Name="BILLEDM" Type="float" />
+          <Property Name="TOBILLM" Type="float" />
+          <Property Name="LABMTRS" Type="float" />
+          <Property Name="EXTPRICE" Type="float" />
+          <Property Name="ODNOTE" Type="varchar" MaxLength="1" />
+          <Property Name="ODSTAT" Type="varchar" MaxLength="15" />
+          <Property Name="CNOCYLS" Type="float" />
+          <Property Name="INVNO" Type="float" />
+          <Property Name="DOFF" Type="datetime" />
+          <Property Name="CUSTNAME" Type="varchar" MaxLength="31" />
+          <Property Name="REMARKS_DES_CUST" Type="varchar" MaxLength="100" />
+          <Property Name="JE_Index" Type="float" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ODATE" Type="datetime" />
+          <Property Name="SDATE" Type="datetime" />
+          <Property Name="CUSTNO" Type="float" />
+          <Property Name="CUSTNA" Type="varchar" MaxLength="30" />
+          <Property Name="CORDNO" Type="varchar" MaxLength="30" />
+          <Property Name="OSTATUS" Type="varchar" MaxLength="1" />
+          <Property Name="SPERSON1" Type="varchar" MaxLength="3" />
+          <Property Name="SNAME1" Type="varchar" MaxLength="20" />
+          <Property Name="SPERSON2" Type="varchar" MaxLength="3" />
+          <Property Name="SNAME2" Type="varchar" MaxLength="20" />
+          <Property Name="CBADR1" Type="varchar" MaxLength="25" />
+          <Property Name="CBADR2" Type="varchar" MaxLength="25" />
+          <Property Name="CBADR3" Type="varchar" MaxLength="25" />
+          <Property Name="CBCITY" Type="varchar" MaxLength="20" />
+          <Property Name="CBST" Type="varchar" MaxLength="2" />
+          <Property Name="CBZIP" Type="varchar" MaxLength="10" />
+          <Property Name="CNTRYNO" Type="varchar" MaxLength="2" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="20" />
+          <Property Name="CBPHONE" Type="varchar" MaxLength="16" />
+          <Property Name="CSNAME" Type="varchar" MaxLength="25" />
+          <Property Name="CSADR1" Type="varchar" MaxLength="25" />
+          <Property Name="CSADR2" Type="varchar" MaxLength="25" />
+          <Property Name="CSADR3" Type="varchar" MaxLength="25" />
+          <Property Name="CSCITY" Type="varchar" MaxLength="20" />
+          <Property Name="CSST" Type="varchar" MaxLength="2" />
+          <Property Name="CSZIP" Type="varchar" MaxLength="10" />
+          <Property Name="CSCOUNTRY" Type="varchar" MaxLength="20" />
+          <Property Name="CSATTN" Type="varchar" MaxLength="20" />
+          <Property Name="XPORT" Type="varchar" MaxLength="2" />
+          <Property Name="XRATE" Type="float" />
+          <Property Name="TERMNO" Type="varchar" MaxLength="2" />
+          <Property Name="TERMS" Type="varchar" MaxLength="20" />
+          <Property Name="CURRENCY" Type="varchar" MaxLength="14" />
+          <Property Name="LABPRT" Type="varchar" MaxLength="2" />
+          <Property Name="OCONPRT" Type="varchar" MaxLength="2" />
+          <Property Name="OHSTATUS" Type="varchar" MaxLength="15" />
+          <Property Name="REMARKS" Type="varchar" MaxLength="500" />
+          <Property Name="DELIVERY TERMS" Type="varchar" MaxLength="30" />
+          <Property Name="SHIP VIA" Type="varchar" MaxLength="35" />
+          <Property Name="MARKET" Type="varchar" MaxLength="20" />
+          <Property Name="OFFICE_REMARKS" Type="varchar" MaxLength="500" />
+          <Property Name="NOT_BEFORE" Type="datetime" />
+          <Property Name="AUTHORIZATION" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityContainer Name="OrderEntryModelStoreContainer">
+          <EntitySet Name="LineItem" EntityType="Self.LineItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OrderEntryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LineItem">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="LINENO" />
+          </Key>
+          <Property Name="OrderID" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LINENO" Type="Double" Nullable="false" />
+          <Property Name="CWAY" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="DESNO" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="DESNA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CITEM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CWAYNO" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="COLORNO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COLOR" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="SUBNO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="PTYPE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PWIDTH" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="PWEIGHT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="TNUMBER" Type="Double" />
+          <Property Name="TNOCWAY" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
+          <Property Name="MCHINECD" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="PRICE" Type="Double" />
+          <Property Name="SPLICE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="SPLICE_PRICE" Type="Double" />
+          <Property Name="SPLICE_QTY" Type="Double" />
+          <Property Name="SPLICE_WIDTH" Type="Double" />
+          <Property Name="OQTY" Type="Double" />
+          <Property Name="JEMTRS" Type="Double" />
+          <Property Name="JEMTRS_SPLICED" Type="Double" />
+          <Property Name="BILLEDM" Type="Double" />
+          <Property Name="TOBILLM" Type="Double" />
+          <Property Name="LABMTRS" Type="Double" />
+          <Property Name="EXTPRICE" Type="Double" />
+          <Property Name="ODNOTE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ODSTAT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CNOCYLS" Type="Double" />
+          <Property Name="INVNO" Type="Double" />
+          <Property Name="DOFF" Type="DateTime" Precision="3" />
+          <Property Name="CUSTNAME" Type="String" MaxLength="31" FixedLength="false" Unicode="false" />
+          <Property Name="REMARKS_DES_CUST" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="JE_Index" Type="Double" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ODATE" Type="DateTime" Precision="3" />
+          <Property Name="SDATE" Type="DateTime" Precision="3" />
+          <Property Name="CUSTNO" Type="Double" />
+          <Property Name="CUSTNA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CORDNO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OSTATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SPERSON1" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="SNAME1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SPERSON2" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="SNAME2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CBADR1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CBADR2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CBADR3" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CBCITY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CBST" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CBZIP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CNTRYNO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CBPHONE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="CSNAME" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CSADR1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CSADR2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CSADR3" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CSCITY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CSST" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CSZIP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CSCOUNTRY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CSATTN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="XPORT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="XRATE" Type="Double" />
+          <Property Name="TERMNO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="TERMS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CURRENCY" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="LABPRT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="OCONPRT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="OHSTATUS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="REMARKS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DELIVERY_TERMS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SHIP_VIA" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="MARKET" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OFFICE_REMARKS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="NOT_BEFORE" Type="DateTime" Precision="3" />
+          <Property Name="AUTHORIZATION" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="OrderEntryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LineItems" EntityType="Self.LineItem" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OrderEntryModelStoreContainer" CdmEntityContainer="OrderEntryEntities">
+          <EntitySetMapping Name="LineItems">
+            <EntityTypeMapping TypeName="OrderEntryModel.LineItem">
+              <MappingFragment StoreEntitySet="LineItem">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="LINENO" ColumnName="LINENO" />
+                <ScalarProperty Name="CWAY" ColumnName="CWAY" />
+                <ScalarProperty Name="DESNO" ColumnName="DESNO" />
+                <ScalarProperty Name="DESNA" ColumnName="DESNA" />
+                <ScalarProperty Name="CITEM" ColumnName="CITEM" />
+                <ScalarProperty Name="CWAYNO" ColumnName="CWAYNO" />
+                <ScalarProperty Name="COLORNO" ColumnName="COLORNO" />
+                <ScalarProperty Name="COLOR" ColumnName="COLOR" />
+                <ScalarProperty Name="SUBNO" ColumnName="SUBNO" />
+                <ScalarProperty Name="PTYPE" ColumnName="PTYPE" />
+                <ScalarProperty Name="PWIDTH" ColumnName="PWIDTH" />
+                <ScalarProperty Name="PWEIGHT" ColumnName="PWEIGHT" />
+                <ScalarProperty Name="TNUMBER" ColumnName="TNUMBER" />
+                <ScalarProperty Name="TNOCWAY" ColumnName="TNOCWAY" />
+                <ScalarProperty Name="MCHINECD" ColumnName="MCHINECD" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="SPLICE" ColumnName="SPLICE" />
+                <ScalarProperty Name="SPLICE_PRICE" ColumnName="SPLICE_PRICE" />
+                <ScalarProperty Name="SPLICE_QTY" ColumnName="SPLICE_QTY" />
+                <ScalarProperty Name="SPLICE_WIDTH" ColumnName="SPLICE_WIDTH" />
+                <ScalarProperty Name="OQTY" ColumnName="OQTY" />
+                <ScalarProperty Name="JEMTRS" ColumnName="JEMTRS" />
+                <ScalarProperty Name="JEMTRS_SPLICED" ColumnName="JEMTRS_SPLICED" />
+                <ScalarProperty Name="BILLEDM" ColumnName="BILLEDM" />
+                <ScalarProperty Name="TOBILLM" ColumnName="TOBILLM" />
+                <ScalarProperty Name="LABMTRS" ColumnName="LABMTRS" />
+                <ScalarProperty Name="EXTPRICE" ColumnName="EXTPRICE" />
+                <ScalarProperty Name="ODNOTE" ColumnName="ODNOTE" />
+                <ScalarProperty Name="ODSTAT" ColumnName="ODSTAT" />
+                <ScalarProperty Name="CNOCYLS" ColumnName="CNOCYLS" />
+                <ScalarProperty Name="INVNO" ColumnName="INVNO" />
+                <ScalarProperty Name="DOFF" ColumnName="DOFF" />
+                <ScalarProperty Name="CUSTNAME" ColumnName="CUSTNAME" />
+                <ScalarProperty Name="REMARKS_DES_CUST" ColumnName="REMARKS_DES_CUST" />
+                <ScalarProperty Name="JE_Index" ColumnName="JE_Index" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="OrderEntryModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ODATE" ColumnName="ODATE" />
+                <ScalarProperty Name="SDATE" ColumnName="SDATE" />
+                <ScalarProperty Name="CUSTNO" ColumnName="CUSTNO" />
+                <ScalarProperty Name="CUSTNA" ColumnName="CUSTNA" />
+                <ScalarProperty Name="CORDNO" ColumnName="CORDNO" />
+                <ScalarProperty Name="OSTATUS" ColumnName="OSTATUS" />
+                <ScalarProperty Name="SPERSON1" ColumnName="SPERSON1" />
+                <ScalarProperty Name="SNAME1" ColumnName="SNAME1" />
+                <ScalarProperty Name="SPERSON2" ColumnName="SPERSON2" />
+                <ScalarProperty Name="SNAME2" ColumnName="SNAME2" />
+                <ScalarProperty Name="CBADR1" ColumnName="CBADR1" />
+                <ScalarProperty Name="CBADR2" ColumnName="CBADR2" />
+                <ScalarProperty Name="CBADR3" ColumnName="CBADR3" />
+                <ScalarProperty Name="CBCITY" ColumnName="CBCITY" />
+                <ScalarProperty Name="CBST" ColumnName="CBST" />
+                <ScalarProperty Name="CBZIP" ColumnName="CBZIP" />
+                <ScalarProperty Name="CNTRYNO" ColumnName="CNTRYNO" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="CBPHONE" ColumnName="CBPHONE" />
+                <ScalarProperty Name="CSNAME" ColumnName="CSNAME" />
+                <ScalarProperty Name="CSADR1" ColumnName="CSADR1" />
+                <ScalarProperty Name="CSADR2" ColumnName="CSADR2" />
+                <ScalarProperty Name="CSADR3" ColumnName="CSADR3" />
+                <ScalarProperty Name="CSCITY" ColumnName="CSCITY" />
+                <ScalarProperty Name="CSST" ColumnName="CSST" />
+                <ScalarProperty Name="CSZIP" ColumnName="CSZIP" />
+                <ScalarProperty Name="CSCOUNTRY" ColumnName="CSCOUNTRY" />
+                <ScalarProperty Name="CSATTN" ColumnName="CSATTN" />
+                <ScalarProperty Name="XPORT" ColumnName="XPORT" />
+                <ScalarProperty Name="XRATE" ColumnName="XRATE" />
+                <ScalarProperty Name="TERMNO" ColumnName="TERMNO" />
+                <ScalarProperty Name="TERMS" ColumnName="TERMS" />
+                <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+                <ScalarProperty Name="LABPRT" ColumnName="LABPRT" />
+                <ScalarProperty Name="OCONPRT" ColumnName="OCONPRT" />
+                <ScalarProperty Name="OHSTATUS" ColumnName="OHSTATUS" />
+                <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+                <ScalarProperty Name="DELIVERY_TERMS" ColumnName="DELIVERY TERMS" />
+                <ScalarProperty Name="SHIP_VIA" ColumnName="SHIP VIA" />
+                <ScalarProperty Name="MARKET" ColumnName="MARKET" />
+                <ScalarProperty Name="OFFICE_REMARKS" ColumnName="OFFICE_REMARKS" />
+                <ScalarProperty Name="NOT_BEFORE" ColumnName="NOT_BEFORE" />
+                <ScalarProperty Name="AUTHORIZATION" ColumnName="AUTHORIZATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

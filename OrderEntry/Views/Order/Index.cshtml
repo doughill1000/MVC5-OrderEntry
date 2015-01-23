@@ -1,0 +1,118 @@
+﻿@model IEnumerable<OrderEntry.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ODATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SDATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CUSTNA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CORDNO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SNAME1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CSNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CSADR1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CSADR2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CSADR3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CSCITY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CSST)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CSZIP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CSCOUNTRY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CSATTN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REMARKS)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ODATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CUSTNA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CORDNO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SNAME1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CSNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CSADR1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CSADR2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CSADR3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CSCITY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CSST)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CSZIP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CSCOUNTRY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CSATTN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REMARKS)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

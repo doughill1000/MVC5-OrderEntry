@@ -1,0 +1,146 @@
+﻿@model OrderEntry.Models.Order
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ODATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ODATE)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SDATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CUSTNA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CUSTNA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CORDNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CORDNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SNAME1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SNAME1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SPERSON2)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSADR1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSADR1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSADR2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSADR2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSADR3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSADR3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSCITY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSCITY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSST)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSZIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSZIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSCOUNTRY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSCOUNTRY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSATTN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSATTN)
+        </dd>
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.REMARKS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REMARKS)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

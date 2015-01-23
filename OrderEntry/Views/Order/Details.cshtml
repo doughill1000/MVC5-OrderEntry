@@ -1,0 +1,362 @@
+﻿@model OrderEntry.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ODATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ODATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CUSTNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CUSTNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CUSTNA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CUSTNA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CORDNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CORDNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OSTATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OSTATUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SPERSON1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SPERSON1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SNAME1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SNAME1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SPERSON2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SPERSON2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SNAME2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SNAME2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CBADR1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CBADR1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CBADR2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CBADR2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CBADR3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CBADR3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CBCITY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CBCITY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CBST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CBST)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CBZIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CBZIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CNTRYNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNTRYNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COUNTRY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COUNTRY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CBPHONE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CBPHONE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSADR1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSADR1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSADR2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSADR2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSADR3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSADR3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSCITY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSCITY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSST)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSZIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSZIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSCOUNTRY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSCOUNTRY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSATTN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSATTN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XPORT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XPORT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XRATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XRATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TERMNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TERMNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TERMS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TERMS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CURRENCY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CURRENCY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LABPRT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LABPRT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OCONPRT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OCONPRT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OHSTATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OHSTATUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REMARKS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REMARKS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DELIVERY_TERMS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DELIVERY_TERMS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SHIP_VIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SHIP_VIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MARKET)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MARKET)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OFFICE_REMARKS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OFFICE_REMARKS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOT_BEFORE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOT_BEFORE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AUTHORIZATION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AUTHORIZATION)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

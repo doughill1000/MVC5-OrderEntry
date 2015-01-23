@@ -1,0 +1,241 @@
+﻿@model OrderEntry.Models.Order
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <div class="form-horizontal">
+        <div class="row">
+            <div class="col-md-12">
+                <span class="CreateHeader">New Order</span>
+            </div>
+        </div>
+        <hr />
+        <br />
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Customer</legend>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4">
+
+                        @Html.LabelFor(model => model.CUSTNA, new { @class = "label-colon" })
+
+                    </div>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.CUSTNA, new { @class = "longInput" })
+                        @Html.ValidationMessageFor(model => model.CUSTNA)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3">
+
+                        @Html.LabelFor(model => model.SNAME1, new { @class = "label-colon" })
+
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.SNAME1)
+                        @Html.ValidationMessageFor(model => model.SNAME1)
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4">
+                        @Html.LabelFor(model => model.CORDNO, new { @class = "label-colon" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.CORDNO)
+                        @Html.ValidationMessageFor(model => model.CORDNO)
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+
+        </fieldset>
+
+        <br />
+        <br />
+
+        <div class="row">
+            <div class="col-md-12">
+                <fieldset>
+                    <legend>Shipping Information</legend>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.CSNAME, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => model.CSNAME, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => model.CSNAME)
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.CSADR1, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => model.CSADR1, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => model.CSADR1)
+                            </div>
+                        </div>
+                        <div class="col-md-8"></div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.CSADR2, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => model.CSADR2, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => model.CSADR2)
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.CSADR3, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => model.CSADR3, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => model.CSADR3)
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.CSCITY, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.CSCITY, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => model.CSCITY)
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.CSST, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.CSST, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => model.CSST)
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.CSZIP, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.CSZIP, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => model.CSZIP)
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.CSCOUNTRY, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.CSCOUNTRY, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => model.CSCOUNTRY)
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.CSATTN, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => model.CSATTN, new { @class = "extraLongInput" })
+                                @Html.ValidationMessageFor(model => model.CSATTN)
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-3">
+                                @Html.LabelFor(model => model.SDATE, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.SDATE)
+                                @Html.ValidationMessageFor(model => model.SDATE)
+                            </div>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+
+                </fieldset>
+
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <hr />
+        <br />
+
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.REMARKS, new { @class = "label-colon" })
+                </div>
+
+                <div class="col-md-9">
+                    @Html.TextAreaFor(model => model.REMARKS, new { @class = "text-area" })
+                    @Html.ValidationMessageFor(model => model.REMARKS)
+                </div>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
