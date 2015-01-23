@@ -13,7 +13,7 @@ namespace OrderEntry.Models
         [DisplayFormat(DataFormatString = "{0:MM/dd}")]
         public Nullable<System.DateTime> ODATE { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Required")]
         [DisplayName("Ship Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd}")]
         public Nullable<System.DateTime> SDATE { get; set; }

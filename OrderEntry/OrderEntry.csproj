@@ -202,8 +202,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OrderEntryModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Orders\OrderViewModel.cs" />
     <Compile Include="Models\PartialClasses.cs" />
-    <Compile Include="Models\Repository\OrderEntry.cs" />
+    <Compile Include="Models\Repository\IOrderEntryRepository.cs" />
+    <Compile Include="Models\Repository\OrderEntryRepository.cs" />
     <Compile Include="Models\Repository\Transprint.cs" />
     <Compile Include="Models\Transprint.Context.cs">
       <AutoGen>True</AutoGen>

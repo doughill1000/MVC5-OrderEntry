@@ -7,12 +7,15 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OrderEntry.Models;
+using OrderEntry.Models.Repository;
 
 namespace OrderEntry.Controllers
 {
     public class OrderController : Controller
     {
         private OrderEntryEntities db = new OrderEntryEntities();
+
+        private IOrderEntryRepository orderRepository;
 
         // GET: /Order/
         public ActionResult Index()
