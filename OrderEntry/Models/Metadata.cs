@@ -18,28 +18,28 @@ namespace OrderEntry.Models
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}",ApplyFormatInEditMode=true)]
         public Nullable<System.DateTime> SDATE { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Required")]
         [DisplayName("Customer Name")]
         
         [MaxLength(30, ErrorMessage = "Maximum length is 30 characters.")]
         public string CUSTNA { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Required")]
         [DisplayName("Customer Order#")]
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid integer Number")]
         public string CORDNO { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Required")]
         [DisplayName("Sales Rep")]
         [MaxLength(20, ErrorMessage = "Maximum length is 20 characters.")]
         public string SNAME1 { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Required")]
         [DisplayName("Customer Name")]
         [MaxLength(25, ErrorMessage = "Maximum length is 25 characters.")]
-        public string CSNAME { get; set; } 
+        public string CSNAME { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Required")]
         [DisplayName("Address 1")]
         [MaxLength(25, ErrorMessage = "Maximum length is 25 characters.")]
         public string CSADR1 { get; set; }
@@ -64,7 +64,7 @@ namespace OrderEntry.Models
         [MaxLength(5, ErrorMessage = "Maximum length is 5 characters.")]
         public string CSZIP { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Required")]
         [DisplayName("Country")]
         [MaxLength(20, ErrorMessage = "Maximum length is 20 characters.")]
         public string CSCOUNTRY { get; set; }

@@ -189,7 +189,7 @@
                                 @Html.LabelFor(model => order.SDATE, new { @class = "label-colon" })
                             </div>
                             <div class="col-md-9">
-                                @Html.EditorFor(model => order.SDATE)
+                                @Html.TextBoxFor(model => order.SDATE, new { @class = "messageDate" })
                                 @Html.ValidationMessageFor(model => order.SDATE)
                             </div>
                         </div>
@@ -237,3 +237,14 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<script>
+    $(function () {
+        $(".messageDate").datepicker({
+            showOn: "button",
+            buttonImage: "../Images/Calendar.gif",
+            buttonImageOnly: true,
+            buttonText: "Select date"
+        });
+    });
+</script>

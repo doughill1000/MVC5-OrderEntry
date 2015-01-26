@@ -75,3 +75,10 @@ input.extraLongInput {
     width:1000px;
 }
 
+.table{
+    text-align:center;
+}
+
+.table th{
+    text-align:center;
+}
