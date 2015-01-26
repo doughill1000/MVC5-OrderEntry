@@ -28,7 +28,7 @@
 
                     </div>
                     <div class="col-md-8">
-                        @Html.DropDownListFor(model => order.CUSTNA, Model.Customers, "---Select a Customer---", new { @class = "dropdown" })
+                        @Html.DropDownListFor(model => order.CUSTNA, Model.Customers, "---Select a Customer---", new { @class = "dropdown", onchange = "updateAddress()" })
                         @Html.ValidationMessageFor(model => order.CUSTNA)
                     </div>
                 </div>
@@ -246,4 +246,11 @@
             buttonText: "Select date"
         });
     });
+
+    var updateAddress = function () {
+        var customerID = $("#order_CUSTNA").val();        
+        if (customerID.length > 0) {
+            alert(customerID);
+        }
+    }
 </script>
