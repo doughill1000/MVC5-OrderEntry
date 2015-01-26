@@ -14,6 +14,6 @@ namespace OrderEntry.Models.Orders
 
         public List<SelectListItem> Customers { get; set; }
 
-        public List<SelectListItem> Countries { get; set; }
+        public List<SelectListItem> SalesPersons { get; set; }
     }
 }

@@ -20,6 +20,7 @@ namespace OrderEntry.Models
 
         [Required]
         [DisplayName("Customer Name")]
+        
         [MaxLength(30, ErrorMessage = "Maximum length is 30 characters.")]
         public string CUSTNA { get; set; }
 

@@ -51,6 +51,8 @@ namespace OrderEntry.Controllers
 
             model.Customers = transprintRepository.GetCustomers();
 
+            model.SalesPersons = orderRepository.GetSalesPersons();
+
             return View(model);
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace OrderEntry.Models.Repository
 {
@@ -48,6 +49,12 @@ namespace OrderEntry.Models.Repository
         /// </summary>
         /// <param name="order">The order to update</param>
         void Update(Order order);
+
+        /// <summary>
+        /// Gets a list of sales persons
+        /// </summary>
+        /// <returns>List of sales persons</returns>
+        List<SelectListItem> GetSalesPersons();
 
         
     }

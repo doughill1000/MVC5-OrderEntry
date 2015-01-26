@@ -40,7 +40,7 @@
 
                     </div>
                     <div class="col-md-9">
-                        @Html.EditorFor(model => order.SNAME1)
+                        @Html.DropDownListFor(model => order.SNAME1 , Model.SalesPersons, "---Select a Sales Person---" )
                         @Html.ValidationMessageFor(model => order.SNAME1)
                     </div>
                 </div>
