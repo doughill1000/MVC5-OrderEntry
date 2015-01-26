@@ -8,130 +8,222 @@
 {
     var order = Model.Order;
     @Html.AntiForgeryToken()
-
+    <br />
     <div class="form-horizontal">
-        <h4>Order</h4>
-        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <span class="Header">Edit</span>
+            </div>
+        </div>
+        <br />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => order.ID)
+        <fieldset>
+            <legend>Customer</legend>
 
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4">
 
+                        @Html.LabelFor(model => order.CUSTNA, new { @class = "label-colon" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => order.CUSTNA, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => order.CUSTNA, Model.Customers, "---Select a Customer---", new { @class = "dropdown" })
-                @Html.ValidationMessageFor(model => order.CUSTNA)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => order.CORDNO, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => order.CORDNO)
-                @Html.ValidationMessageFor(model => order.CORDNO)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => order.SNAME1, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => order.SNAME1, Model.SalesPersons, "---Select a Sales Person---", new { @class = "dropdown" })
-                @Html.ValidationMessageFor(model => order.SNAME1)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => order.CSNAME, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => order.CSNAME)
-                @Html.ValidationMessageFor(model => order.CSNAME)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => order.CSADR1, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => order.CSADR1)
-                @Html.ValidationMessageFor(model => order.CSADR1)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => order.CSADR2, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => order.CSADR2)
-                @Html.ValidationMessageFor(model => order.CSADR2)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => order.CSADR3, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => order.CSADR3)
-                @Html.ValidationMessageFor(model => order.CSADR3)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => order.CSCITY, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => order.CSCITY)
-                @Html.ValidationMessageFor(model => order.CSCITY)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => order.CSST, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => order.CSST)
-                @Html.ValidationMessageFor(model => order.CSST)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => order.CSZIP, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => order.CSZIP)
-                @Html.ValidationMessageFor(model => order.CSZIP)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => order.CSCOUNTRY, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => order.CSCOUNTRY)
-                @Html.ValidationMessageFor(model => order.CSCOUNTRY)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => order.CSATTN, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => order.CSATTN)
-                @Html.ValidationMessageFor(model => order.CSATTN)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => order.REMARKS, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => order.REMARKS)
-                @Html.ValidationMessageFor(model => order.REMARKS)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => order.SDATE, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => order.SDATE, new { @class = "messageDate" })
-                @Html.ValidationMessageFor(model => order.SDATE)
-            </div>
-            <br />
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(model => order.CUSTNA, Model.Customers, "---Select a Customer---", new { @class = "dropdown" })
+                        @Html.ValidationMessageFor(model => order.CUSTNA)
+                    </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="col-md-3">
+
+                        @Html.LabelFor(model => order.SNAME1, new { @class = "label-colon" })
+
+                    </div>
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(model => order.SNAME1, Model.SalesPersons, "---Select a Sales Person---", new { @class = "dropdown" })
+                        @Html.ValidationMessageFor(model => order.SNAME1)
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4">
+                        @Html.LabelFor(model => order.CORDNO, new { @class = "label-colon" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => order.CORDNO)
+                        @Html.ValidationMessageFor(model => order.CORDNO)
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+
+        </fieldset>
+
+        <br />
+        <br />
+
+        <div class="row">
+            <div class="col-md-12">
+                <fieldset>
+                    <legend>Shipping Information</legend>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => order.CSNAME, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => order.CSNAME, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSNAME)
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => order.CSADR1, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => order.CSADR1, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSADR1)
+                            </div>
+                        </div>
+                        <div class="col-md-8"></div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => order.CSADR2, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => order.CSADR2, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSADR2)
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => order.CSADR3, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => order.CSADR3, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSADR3)
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => order.CSCITY, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => order.CSCITY, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSCITY)
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => order.CSST, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => order.CSST, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSST)
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => order.CSZIP, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => order.CSZIP, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSZIP)
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => order.CSCOUNTRY, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => order.CSCOUNTRY, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSCOUNTRY)
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => order.CSATTN, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => order.CSATTN, new { @class = "extraLongInput" })
+                                @Html.ValidationMessageFor(model => order.CSATTN)
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-3">
+                                @Html.LabelFor(model => order.SDATE, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(model => order.SDATE, new { @class = "messageDate" })
+                                @Html.ValidationMessageFor(model => order.SDATE)
+                            </div>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+
+                </fieldset>
+
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <hr />
+        <br />
+
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => order.REMARKS, new { @class = "label-colon" })
+                </div>
+
+                <div class="col-md-9">
+                    @Html.TextAreaFor(model => order.REMARKS, new { @class = "text-area" })
+                    @Html.ValidationMessageFor(model => order.REMARKS)
+                </div>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
