@@ -1,4 +1,4 @@
-﻿@model OrderEntry.Models.Order
+﻿@model OrderEntry.Models.Orders.OrderViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -6,6 +6,7 @@
 
 @using (Html.BeginForm())
 {
+    var order = Model.Order;
     @Html.AntiForgeryToken()
     <br />
     <div class="form-horizontal">
@@ -24,23 +25,23 @@
                 <div class="col-md-6">
                     <div class="col-md-4">
 
-                        @Html.LabelFor(model => model.CUSTNA, new { @class = "label-colon" })
+                        @Html.LabelFor(model => order.CUSTNA, new { @class = "label-colon" })
 
                     </div>
                     <div class="col-md-8">
-                        @Html.TextBoxFor(model => model.CUSTNA, new { @class = "longInput" })
-                        @Html.ValidationMessageFor(model => model.CUSTNA)
+                        @Html.DropDownListFor(model => order.CUSTNA, Model.Customers, "---Select a Customer---" )
+                        @Html.ValidationMessageFor(model => order.CUSTNA)
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="col-md-3">
 
-                        @Html.LabelFor(model => model.SNAME1, new { @class = "label-colon" })
+                        @Html.LabelFor(model => order.SNAME1, new { @class = "label-colon" })
 
                     </div>
                     <div class="col-md-9">
-                        @Html.EditorFor(model => model.SNAME1)
-                        @Html.ValidationMessageFor(model => model.SNAME1)
+                        @Html.EditorFor(model => order.SNAME1)
+                        @Html.ValidationMessageFor(model => order.SNAME1)
                     </div>
                 </div>
             </div>
@@ -49,11 +50,11 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="col-md-4">
-                        @Html.LabelFor(model => model.CORDNO, new { @class = "label-colon" })
+                        @Html.LabelFor(model => order.CORDNO, new { @class = "label-colon" })
                     </div>
                     <div class="col-md-8">
-                        @Html.EditorFor(model => model.CORDNO)
-                        @Html.ValidationMessageFor(model => model.CORDNO)
+                        @Html.EditorFor(model => order.CORDNO)
+                        @Html.ValidationMessageFor(model => order.CORDNO)
                     </div>
                 </div>
                 <div class="col-md-6"></div>
@@ -71,11 +72,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="col-md-4">
-                                @Html.LabelFor(model => model.CSNAME, new { @class = "label-colon" })
+                                @Html.LabelFor(model => order.CSNAME, new { @class = "label-colon" })
                             </div>
                             <div class="col-md-8">
-                                @Html.TextBoxFor(model => model.CSNAME, new { @class = "longInput" })
-                                @Html.ValidationMessageFor(model => model.CSNAME)
+                                @Html.TextBoxFor(model => order.CSNAME, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSNAME)
                             </div>
                         </div>
                         <div class="col-md-6"></div>
@@ -84,11 +85,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="col-md-4">
-                                @Html.LabelFor(model => model.CSADR1, new { @class = "label-colon" })
+                                @Html.LabelFor(model => order.CSADR1, new { @class = "label-colon" })
                             </div>
                             <div class="col-md-8">
-                                @Html.TextBoxFor(model => model.CSADR1, new { @class = "longInput" })
-                                @Html.ValidationMessageFor(model => model.CSADR1)
+                                @Html.TextBoxFor(model => order.CSADR1, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSADR1)
                             </div>
                         </div>
                         <div class="col-md-8"></div>
@@ -97,11 +98,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="col-md-4">
-                                @Html.LabelFor(model => model.CSADR2, new { @class = "label-colon" })
+                                @Html.LabelFor(model => order.CSADR2, new { @class = "label-colon" })
                             </div>
                             <div class="col-md-8">
-                                @Html.TextBoxFor(model => model.CSADR2, new { @class = "longInput" })
-                                @Html.ValidationMessageFor(model => model.CSADR2)
+                                @Html.TextBoxFor(model => order.CSADR2, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSADR2)
                             </div>
                         </div>
                         <div class="col-md-6"></div>
@@ -110,11 +111,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="col-md-4">
-                                @Html.LabelFor(model => model.CSADR3, new { @class = "label-colon" })
+                                @Html.LabelFor(model => order.CSADR3, new { @class = "label-colon" })
                             </div>
                             <div class="col-md-8">
-                                @Html.TextBoxFor(model => model.CSADR3, new { @class = "longInput" })
-                                @Html.ValidationMessageFor(model => model.CSADR3)
+                                @Html.TextBoxFor(model => order.CSADR3, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSADR3)
                             </div>
                         </div>
                         <div class="col-md-6"></div>
@@ -123,11 +124,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="col-md-4">
-                                @Html.LabelFor(model => model.CSCITY, new { @class = "label-colon" })
+                                @Html.LabelFor(model => order.CSCITY, new { @class = "label-colon" })
                             </div>
                             <div class="col-md-8">
-                                @Html.EditorFor(model => model.CSCITY, new { @class = "longInput" })
-                                @Html.ValidationMessageFor(model => model.CSCITY)
+                                @Html.EditorFor(model => order.CSCITY, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSCITY)
                             </div>
                         </div>
                         <div class="col-md-6"></div>
@@ -136,11 +137,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="col-md-4">
-                                @Html.LabelFor(model => model.CSST, new { @class = "label-colon" })
+                                @Html.LabelFor(model => order.CSST, new { @class = "label-colon" })
                             </div>
                             <div class="col-md-8">
-                                @Html.EditorFor(model => model.CSST, new { @class = "longInput" })
-                                @Html.ValidationMessageFor(model => model.CSST)
+                                @Html.EditorFor(model => order.CSST, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSST)
                             </div>
                         </div>
                         <div class="col-md-6"></div>
@@ -149,11 +150,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="col-md-4">
-                                @Html.LabelFor(model => model.CSZIP, new { @class = "label-colon" })
+                                @Html.LabelFor(model => order.CSZIP, new { @class = "label-colon" })
                             </div>
                             <div class="col-md-8">
-                                @Html.EditorFor(model => model.CSZIP, new { @class = "longInput" })
-                                @Html.ValidationMessageFor(model => model.CSZIP)
+                                @Html.EditorFor(model => order.CSZIP, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSZIP)
                             </div>
                         </div>
                         <div class="col-md-6"></div>
@@ -162,11 +163,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="col-md-4">
-                                @Html.LabelFor(model => model.CSCOUNTRY, new { @class = "label-colon" })
+                                @Html.LabelFor(model => order.CSCOUNTRY, new { @class = "label-colon" })
                             </div>
                             <div class="col-md-8">
-                                @Html.EditorFor(model => model.CSCOUNTRY, new { @class = "longInput" })
-                                @Html.ValidationMessageFor(model => model.CSCOUNTRY)
+                                @Html.EditorFor(model => order.CSCOUNTRY, new { @class = "longInput" })
+                                @Html.ValidationMessageFor(model => order.CSCOUNTRY)
                             </div>
                         </div>
                         <div class="col-md-6"></div>
@@ -176,20 +177,20 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="col-md-4">
-                                @Html.LabelFor(model => model.CSATTN, new { @class = "label-colon" })
+                                @Html.LabelFor(model => order.CSATTN, new { @class = "label-colon" })
                             </div>
                             <div class="col-md-8">
-                                @Html.TextBoxFor(model => model.CSATTN, new { @class = "extraLongInput" })
-                                @Html.ValidationMessageFor(model => model.CSATTN)
+                                @Html.TextBoxFor(model => order.CSATTN, new { @class = "extraLongInput" })
+                                @Html.ValidationMessageFor(model => order.CSATTN)
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="col-md-3">
-                                @Html.LabelFor(model => model.SDATE, new { @class = "label-colon" })
+                                @Html.LabelFor(model => order.SDATE, new { @class = "label-colon" })
                             </div>
                             <div class="col-md-9">
-                                @Html.EditorFor(model => model.SDATE)
-                                @Html.ValidationMessageFor(model => model.SDATE)
+                                @Html.EditorFor(model => order.SDATE)
+                                @Html.ValidationMessageFor(model => order.SDATE)
                             </div>
                         </div>
                         <div class="col-md-3"></div>
@@ -207,12 +208,12 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="col-md-3">
-                    @Html.LabelFor(model => model.REMARKS, new { @class = "label-colon" })
+                    @Html.LabelFor(model => order.REMARKS, new { @class = "label-colon" })
                 </div>
 
                 <div class="col-md-9">
-                    @Html.TextAreaFor(model => model.REMARKS, new { @class = "text-area" })
-                    @Html.ValidationMessageFor(model => model.REMARKS)
+                    @Html.TextAreaFor(model => order.REMARKS, new { @class = "text-area" })
+                    @Html.ValidationMessageFor(model => order.REMARKS)
                 </div>
             </div>
             <div class="col-md-4">

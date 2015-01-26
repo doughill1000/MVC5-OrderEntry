@@ -1,34 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using OrderEntry.Models;
 using OrderEntry.Models.Repository;
+using OrderEntry.Models.Orders;
 
 namespace OrderEntry.Controllers
 {
     public class OrderController : Controller
     {
-        private IOrderEntryRepository Repository;
+        private IOrderEntryRepository orderRepository;
+        private ITransprintRepository transprintRepository;
 
         public OrderController()
-            :this(new OrderEntryRepository())
+            :this(new OrderEntryRepository(), new TransprintRepository())
         {
         }
 
-        public OrderController(IOrderEntryRepository Repository)
+        public OrderController(IOrderEntryRepository orderRepository, ITransprintRepository transprintRepository)
         {
-            this.Repository = Repository;
+            this.orderRepository = orderRepository;
+            this.transprintRepository = transprintRepository;
         }
 
         // GET: /Order/
         public ActionResult Index()
         {
-            return View(Repository.GetAll());
+            return View(orderRepository.GetAll());
         }
 
         // GET: /Order/Details/5
@@ -38,7 +36,7 @@ namespace OrderEntry.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = Repository.GetById(id);
+            Order order = orderRepository.GetById(id);
             if (order == null)
             {
                 return HttpNotFound();
@@ -49,7 +47,11 @@ namespace OrderEntry.Controllers
         // GET: /Order/Create
         public ActionResult Create()
         {
-            return View();
+            OrderViewModel model = new OrderViewModel();
+
+            model.Customers = transprintRepository.GetCustomers();
+
+            return View(model);
         }
 
         // POST: /Order/Create
@@ -62,7 +64,7 @@ namespace OrderEntry.Controllers
             if (ModelState.IsValid)
             {
                 order.ID = Guid.NewGuid();
-                Repository.Create(order);
+                orderRepository.Create(order);
                 return RedirectToAction("Index");
             }
 
@@ -76,7 +78,7 @@ namespace OrderEntry.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = Repository.GetById(id);
+            Order order = orderRepository.GetById(id);
             if (order == null)
             {
                 return HttpNotFound();
@@ -93,7 +95,7 @@ namespace OrderEntry.Controllers
         {
             if (ModelState.IsValid)
             {
-                Repository.Edit(order);
+                orderRepository.Edit(order);
                 return RedirectToAction("Index");
             }
             return View(order);
@@ -106,7 +108,7 @@ namespace OrderEntry.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = Repository.GetById(id);
+            Order order = orderRepository.GetById(id);
             if (order == null)
             {
                 return HttpNotFound();
@@ -119,7 +121,7 @@ namespace OrderEntry.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            Repository.Delete(id);
+            orderRepository.Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -127,7 +129,7 @@ namespace OrderEntry.Controllers
         {
             if (disposing)
             {
-                Repository.Dispose();
+                orderRepository.Dispose();
             }
             base.Dispose(disposing);
         }

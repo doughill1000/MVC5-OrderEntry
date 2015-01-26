@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace OrderEntry.Models.Repository
 {
-    interface ITransprintRepository
+    public interface ITransprintRepository
     {
         /// <summary>
         /// Gets a current list of Customers 
         /// </summary>
         /// <returns>A list of active Customers</returns>
-        List<Customer> GetCustomers();
+        List<SelectListItem> GetCustomers();
 
         /// <summary>
         /// Gets a list of countries to ship to
         /// </summary>
         /// <returns></returns>
-        List<Country> GetCountries();
+        List<SelectListItem> GetCountries();
     }
 }
