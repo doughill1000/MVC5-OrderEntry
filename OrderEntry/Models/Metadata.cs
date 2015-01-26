@@ -29,6 +29,9 @@ namespace OrderEntry.Models
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid integer Number")]
         public string CORDNO { get; set; }
 
+        [DisplayName("Status")]
+        public string OHSTATUS { get; set; }
+
         [Required(ErrorMessage = "Required")]
         [DisplayName("Sales Rep")]
         [MaxLength(20, ErrorMessage = "Maximum length is 20 characters.")]
