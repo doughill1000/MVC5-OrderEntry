@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="OrderEntryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="OrderEntryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="LineItem">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -96,12 +96,37 @@
           <Property Name="NOT_BEFORE" Type="datetime" />
           <Property Name="AUTHORIZATION" Type="varchar" MaxLength="15" />
         </EntityType>
+        <EntityType Name="SalesPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="SalesDirector" Type="int" />
+        </EntityType>
+        <Association Name="FK_SalesPerson_SalesPerson">
+          <End Role="SalesPerson" Type="Self.SalesPerson" Multiplicity="0..1" />
+          <End Role="SalesPerson1" Type="Self.SalesPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesPerson">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SalesPerson1">
+              <PropertyRef Name="SalesDirector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="OrderEntryModelStoreContainer">
           <EntitySet Name="LineItem" EntityType="Self.LineItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesPerson" EntityType="Self.SalesPerson" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_SalesPerson_SalesPerson" Association="Self.FK_SalesPerson_SalesPerson">
+            <End Role="SalesPerson" EntitySet="SalesPerson" />
+            <End Role="SalesPerson1" EntitySet="SalesPerson" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OrderEntryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -199,7 +224,35 @@
         <EntityContainer Name="OrderEntryEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="LineItems" EntityType="Self.LineItem" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="SalesPersons" EntityType="OrderEntryModel.SalesPerson" />
+          <AssociationSet Name="FK_SalesPerson_SalesPerson" Association="OrderEntryModel.FK_SalesPerson_SalesPerson">
+            <End Role="SalesPerson" EntitySet="SalesPersons" />
+            <End Role="SalesPerson1" EntitySet="SalesPersons" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="SalesPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="SalesDirector" Type="Int32" />
+          <NavigationProperty Name="SalesPerson1" Relationship="OrderEntryModel.FK_SalesPerson_SalesPerson" FromRole="SalesPerson" ToRole="SalesPerson1" />
+          <NavigationProperty Name="SalesPerson2" Relationship="OrderEntryModel.FK_SalesPerson_SalesPerson" FromRole="SalesPerson1" ToRole="SalesPerson" />
+        </EntityType>
+        <Association Name="FK_SalesPerson_SalesPerson">
+          <End Type="OrderEntryModel.SalesPerson" Role="SalesPerson" Multiplicity="0..1" />
+          <End Type="OrderEntryModel.SalesPerson" Role="SalesPerson1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesPerson">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SalesPerson1">
+              <PropertyRef Name="SalesDirector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -295,6 +348,16 @@
                 <ScalarProperty Name="OFFICE_REMARKS" ColumnName="OFFICE_REMARKS" />
                 <ScalarProperty Name="NOT_BEFORE" ColumnName="NOT_BEFORE" />
                 <ScalarProperty Name="AUTHORIZATION" ColumnName="AUTHORIZATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesPersons">
+            <EntityTypeMapping TypeName="OrderEntryModel.SalesPerson">
+              <MappingFragment StoreEntitySet="SalesPerson">
+                <ScalarProperty Name="SalesDirector" ColumnName="SalesDirector" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

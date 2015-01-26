@@ -208,6 +208,9 @@
     <Compile Include="Models\Repository\ITransprintRepository.cs" />
     <Compile Include="Models\Repository\OrderEntryRepository.cs" />
     <Compile Include="Models\Repository\TransprintRepository.cs" />
+    <Compile Include="Models\SalesPerson.cs">
+      <DependentUpon>OrderEntryModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Transprint.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

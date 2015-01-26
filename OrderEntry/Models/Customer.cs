@@ -69,5 +69,9 @@ namespace OrderEntry.Models
         public string AR_FAX { get; set; }
         public string AR_NOTES { get; set; }
         public string VAT { get; set; }
+        public string DELIVERY_TERMS { get; set; }
+        public string DELIVERY_CITY { get; set; }
+        public string SHIP_VIA { get; set; }
+        public string EMAIL_ADDRESS { get; set; }
     }
 }
