@@ -82,3 +82,7 @@ input.extraLongInput {
 .table th{
     text-align:center;
 }
+
+.dropdown{
+    height: 25px;
+}

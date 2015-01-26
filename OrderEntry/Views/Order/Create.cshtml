@@ -29,7 +29,7 @@
 
                     </div>
                     <div class="col-md-8">
-                        @Html.DropDownListFor(model => order.CUSTNA, Model.Customers, "---Select a Customer---" )
+                        @Html.DropDownListFor(model => order.CUSTNA, Model.Customers, "---Select a Customer---", new { @class = "dropdown" })
                         @Html.ValidationMessageFor(model => order.CUSTNA)
                     </div>
                 </div>
@@ -40,7 +40,7 @@
 
                     </div>
                     <div class="col-md-9">
-                        @Html.DropDownListFor(model => order.SNAME1 , Model.SalesPersons, "---Select a Sales Person---" )
+                        @Html.DropDownListFor(model => order.SNAME1, Model.SalesPersons, "---Select a Sales Person---", new { @class = "dropdown" })
                         @Html.ValidationMessageFor(model => order.SNAME1)
                     </div>
                 </div>
