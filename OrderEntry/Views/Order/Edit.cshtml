@@ -1,131 +1,129 @@
-﻿@model OrderEntry.Models.Order
+﻿@model OrderEntry.Models.Orders.OrderViewModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
 }
-
-<h2>Edit</h2>
-
 
 @using (Html.BeginForm())
 {
+    var order = Model.Order;
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Order</h4>
         <hr />
         @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => order.ID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SDATE, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => order.SDATE, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SDATE)
-                @Html.ValidationMessageFor(model => model.SDATE)
+                @Html.EditorFor(model => order.SDATE)
+                @Html.ValidationMessageFor(model => order.SDATE)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CUSTNA, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => order.CUSTNA, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.CUSTNA)
-                @Html.ValidationMessageFor(model => model.CUSTNA)
+                @Html.DropDownListFor(model => order.CUSTNA, Model.Customers, "---Select a Customer---")
+                @Html.ValidationMessageFor(model => order.CUSTNA)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CORDNO, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => order.CORDNO, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CORDNO)
-                @Html.ValidationMessageFor(model => model.CORDNO)
+                @Html.EditorFor(model => order.CORDNO)
+                @Html.ValidationMessageFor(model => order.CORDNO)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SNAME1, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => order.SNAME1, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SNAME1)
-                @Html.ValidationMessageFor(model => model.SNAME1)
+                @Html.DropDownListFor(model => order.SNAME1, Model.SalesPersons, "---Select a Sales Person---")
+                @Html.ValidationMessageFor(model => order.SNAME1)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CSNAME, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => order.CSNAME, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CSNAME)
-                @Html.ValidationMessageFor(model => model.CSNAME)
+                @Html.EditorFor(model => order.CSNAME)
+                @Html.ValidationMessageFor(model => order.CSNAME)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CSADR1, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => order.CSADR1, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CSADR1)
-                @Html.ValidationMessageFor(model => model.CSADR1)
+                @Html.EditorFor(model => order.CSADR1)
+                @Html.ValidationMessageFor(model => order.CSADR1)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CSADR2, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => order.CSADR2, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CSADR2)
-                @Html.ValidationMessageFor(model => model.CSADR2)
+                @Html.EditorFor(model => order.CSADR2)
+                @Html.ValidationMessageFor(model => order.CSADR2)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CSADR3, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => order.CSADR3, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CSADR3)
-                @Html.ValidationMessageFor(model => model.CSADR3)
+                @Html.EditorFor(model => order.CSADR3)
+                @Html.ValidationMessageFor(model => order.CSADR3)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CSCITY, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => order.CSCITY, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CSCITY)
-                @Html.ValidationMessageFor(model => model.CSCITY)
+                @Html.EditorFor(model => order.CSCITY)
+                @Html.ValidationMessageFor(model => order.CSCITY)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CSST, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => order.CSST, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CSST)
-                @Html.ValidationMessageFor(model => model.CSST)
+                @Html.EditorFor(model => order.CSST)
+                @Html.ValidationMessageFor(model => order.CSST)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CSZIP, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => order.CSZIP, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CSZIP)
-                @Html.ValidationMessageFor(model => model.CSZIP)
+                @Html.EditorFor(model => order.CSZIP)
+                @Html.ValidationMessageFor(model => order.CSZIP)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CSCOUNTRY, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => order.CSCOUNTRY, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CSCOUNTRY)
-                @Html.ValidationMessageFor(model => model.CSCOUNTRY)
+                @Html.EditorFor(model => order.CSCOUNTRY)
+                @Html.ValidationMessageFor(model => order.CSCOUNTRY)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CSATTN, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => order.CSATTN, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CSATTN)
-                @Html.ValidationMessageFor(model => model.CSATTN)
+                @Html.EditorFor(model => order.CSATTN)
+                @Html.ValidationMessageFor(model => order.CSATTN)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.REMARKS, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => order.REMARKS, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.REMARKS)
-                @Html.ValidationMessageFor(model => model.REMARKS)
+                @Html.EditorFor(model => order.REMARKS)
+                @Html.ValidationMessageFor(model => order.REMARKS)
             </div>
         </div>
 

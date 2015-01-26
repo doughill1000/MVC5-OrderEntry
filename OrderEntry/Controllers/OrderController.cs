@@ -76,6 +76,12 @@ namespace OrderEntry.Controllers
         // GET: /Order/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            OrderViewModel model = new OrderViewModel();
+
+            model.Customers = transprintRepository.GetCustomers();
+
+            model.SalesPersons = orderRepository.GetSalesPersons();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -85,7 +91,10 @@ namespace OrderEntry.Controllers
             {
                 return HttpNotFound();
             }
-            return View(order);
+
+            model.Order = order;
+
+            return View(model);
         }
 
         // POST: /Order/Edit/5
