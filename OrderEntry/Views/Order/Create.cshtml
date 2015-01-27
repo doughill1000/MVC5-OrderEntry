@@ -24,12 +24,13 @@
                 <div class="col-md-6">
                     <div class="col-md-4">
 
-                        @Html.LabelFor(model => order.CUSTNA, new { @class = "label-colon" })
+                        @Html.LabelFor(model => order.CUSTNO, new { @class = "label-colon" })
 
                     </div>
                     <div class="col-md-8">
-                        @Html.DropDownListFor(model => order.CUSTNA, Model.Customers, "---Select a Customer---", new { @class = "dropdown", onchange = "updateAddress()" })
-                        @Html.ValidationMessageFor(model => order.CUSTNA)
+                        @Html.DropDownListFor(model => order.CUSTNO, Model.Customers, "---Select a Customer---", new { @class = "dropdown", onchange = "changeTextValue()" })
+                        @Html.HiddenFor(model => order.CUSTNA)
+                        @Html.ValidationMessageFor(model => order.CUSTNO)
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -226,6 +227,8 @@
             </div>
         </div>
     </div>
+
+    @Html.HiddenFor(model => order.SNAME1)
 }
 
 
@@ -246,6 +249,14 @@
             buttonText: "Select date"
         });
     });
+
+    var changeTextValue = function(){
+        var dropDownText = $("#order_CUSTNO option:selected").text();
+        if(dropDownText.length >0)
+        {
+            $("order_CUSTNA").val(dropDownText);
+        }       
+    }
 
     var updateAddress = function () {
         var customerID = $("#order_CUSTNA").val();        

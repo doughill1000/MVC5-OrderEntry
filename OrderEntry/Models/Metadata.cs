@@ -19,14 +19,18 @@ namespace OrderEntry.Models
         public Nullable<System.DateTime> SDATE { get; set; }
 
         [Required(ErrorMessage = "Required")]
-        [DisplayName("Customer Name")]
-        
+        [DisplayName("Customer #")]
+        [Range(0, int.MaxValue, ErrorMessage = "Please enter a valid Customer Number")]
+        public float CUSTNO { get; set; }*/
+
+        //[Required(ErrorMessage = "Required")]
+        [DisplayName("Customer Name")]     
         [MaxLength(30, ErrorMessage = "Maximum length is 30 characters.")]
         public string CUSTNA { get; set; }
 
         [Required(ErrorMessage = "Required")]
         [DisplayName("Customer Order#")]
-        [Range(0, int.MaxValue, ErrorMessage = "Please enter valid integer Number")]
+        [Range(0, int.MaxValue, ErrorMessage = "Please enter valid Order Number")]
         public string CORDNO { get; set; }
 
         [DisplayName("Status")]
