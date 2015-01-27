@@ -23,7 +23,7 @@ namespace OrderEntry.Models
         [Range(0, int.MaxValue, ErrorMessage = "Please enter a valid Customer Number")]
         public float CUSTNO { get; set; }
 
-        //[Required(ErrorMessage = "Required")]
+        [Required(ErrorMessage = "Required")]
         [DisplayName("Customer Name")]     
         [MaxLength(30, ErrorMessage = "Maximum length is 30 characters.")]
         public string CUSTNA { get; set; }
@@ -40,6 +40,11 @@ namespace OrderEntry.Models
         [DisplayName("Sales Rep")]
         [MaxLength(20, ErrorMessage = "Maximum length is 20 characters.")]
         public string SNAME1 { get; set; }
+
+        [Required(ErrorMessage = "Required")]
+        [DisplayName("Sales Rep #")]
+        [MaxLength(20, ErrorMessage = "Maximum length is 20 characters.")]
+        public string SPERSON1 { get; set; }
 
         [Required(ErrorMessage = "Required")]
         [DisplayName("Customer Name")]

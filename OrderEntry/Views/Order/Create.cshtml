@@ -36,12 +36,13 @@
                 <div class="col-md-6">
                     <div class="col-md-3">
 
-                        @Html.LabelFor(model => order.SNAME1, new { @class = "label-colon" })
+                        @Html.LabelFor(model => order.SPERSON1, new { @class = "label-colon" })
 
                     </div>
                     <div class="col-md-9">
-                        @Html.DropDownListFor(model => order.SNAME1, Model.SalesPersons, "---Select a Sales Person---", new { @class = "dropdown" })
-                        @Html.ValidationMessageFor(model => order.SNAME1)
+                        @Html.DropDownListFor(model => order.SPERSON1, Model.SalesPersons, "---Select a Sales Person---", new { @class = "dropdown" })
+                        @Html.HiddenFor(model => order.SNAME1)
+                        @Html.ValidationMessageFor(model => order.SPERSON1)
                     </div>
                 </div>
             </div>
@@ -250,17 +251,28 @@
         });
     });
 
-    var changeTextValue = function(){
-        var dropDownText = $("#order_CUSTNO option:selected").text();
-        if(dropDownText.length >0)
-        {
-            text = val(dropDownText);
-            document.getElementById('#order_CUSTNA').value = dropDownText;
-        }       
-    }
+    $(function () {
+        $("form").submit(function () {
+            var dropDownText = $("#order_CUSTNO option:selected").text();
+            if (dropDownText.length > 0) {
+                $("#order_CUSTNA").attr("value", dropDownText);
+            }
+        });
+    });
+
+    $(function () {
+        $("form").submit(function () {
+            var dropDownText = $("#order_SPERSON1 option:selected").text();
+            if (dropDownText.length > 0) {
+                $("#order_SNAME1").attr("value", dropDownText);
+            }
+        });
+    });
+
+
 
     var updateAddress = function () {
-        var customerID = $("#order_CUSTNA").val();        
+        var customerID = $("#order_CUSTNA").val();
         if (customerID.length > 0) {
             alert(customerID);
         }
