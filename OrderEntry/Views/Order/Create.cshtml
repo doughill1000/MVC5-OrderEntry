@@ -254,7 +254,8 @@
         var dropDownText = $("#order_CUSTNO option:selected").text();
         if(dropDownText.length >0)
         {
-            $("order_CUSTNA").val(dropDownText);
+            text = val(dropDownText);
+            document.getElementById('#order_CUSTNA').value = dropDownText;
         }       
     }
 

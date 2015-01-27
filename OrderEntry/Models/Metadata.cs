@@ -21,7 +21,7 @@ namespace OrderEntry.Models
         [Required(ErrorMessage = "Required")]
         [DisplayName("Customer #")]
         [Range(0, int.MaxValue, ErrorMessage = "Please enter a valid Customer Number")]
-        public float CUSTNO { get; set; }*/
+        public float CUSTNO { get; set; }
 
         //[Required(ErrorMessage = "Required")]
         [DisplayName("Customer Name")]     
