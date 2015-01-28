@@ -269,10 +269,15 @@
         });
     });
 
-    var updateAddress = function () {
-        var customerID = $("#order_CUSTNA").val();
-        if (customerID.length > 0) {
-            alert(customerID);
-        }
+    function populateCustomerAddress() {
+        var customer = {};
+        customer.CUSTNO = $('#order_CUSTNO').val();
+        $.getJSON("PopulateAddress", customer, updateFields);
+    }
+
+    updateFields = function (data) {
+        $("#ADR1").val(data.ADR1);
+        $("#ADR2").val(data.ADR2);
+        $("#ADR3").val(data.ADR3);
     }
 </script>
