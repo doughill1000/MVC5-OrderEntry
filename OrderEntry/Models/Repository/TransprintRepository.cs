@@ -48,5 +48,12 @@ namespace OrderEntry.Models.Repository
         {
             throw new NotImplementedException();
         }
+
+        public Customer GetByCustNum(double custnum)
+        {
+            Customer customer = db.Customers.Where(c => c.CUSTNO == custnum).First();
+
+            return customer;
+        }
     }
 }

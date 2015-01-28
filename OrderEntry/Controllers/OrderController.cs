@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using OrderEntry.Models;
 using OrderEntry.Models.Repository;
 using OrderEntry.Models.Orders;
+using OrderEntry.Models.Utility;
 
 namespace OrderEntry.Controllers
 {
@@ -143,6 +144,13 @@ namespace OrderEntry.Controllers
                 orderRepository.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public JsonResult PopulateAddress(double custNum)
+        {
+            var customer = transprintRepository.GetByCustNum(custNum);
+
+            return new JsonNetResult(customer, JsonRequestBehavior.DenyGet);            
         }
     }
 }

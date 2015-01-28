@@ -20,5 +20,12 @@ namespace OrderEntry.Models.Repository
         /// </summary>
         /// <returns></returns>
         List<SelectListItem> GetCountries();
+
+        /// <summary>
+        /// Gets a customer by finding the Customer Number (CUSTNO)
+        /// </summary>
+        /// <param name="custnum">The customer number</param>
+        /// <returns>A Customer</returns>
+        Customer GetByCustNum(double custnum);
     }
 }

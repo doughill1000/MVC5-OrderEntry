@@ -29,7 +29,7 @@ namespace OrderEntry.Models
         public string CUSTNA { get; set; }
 
         [Required(ErrorMessage = "Required")]
-        [DisplayName("Customer Order#")]
+        [DisplayName("Customer Order #")]
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid Order Number")]
         public string CORDNO { get; set; }
 

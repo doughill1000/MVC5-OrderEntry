@@ -30,7 +30,7 @@
 
                     </div>
                     <div class="col-md-8">
-                        @Html.DropDownListFor(model => order.CUSTNO, Model.Customers, "---Select a Customer---", new { @class = "dropdown" })
+                        @Html.DropDownListFor(model => order.CUSTNO, Model.Customers, "---Select a Customer---", new { @class = "dropdown", onchange = "populateCustomerAddress()" })
                         @Html.HiddenFor(model => order.CUSTNA)
                         @Html.ValidationMessageFor(model => order.CUSTNO)
                     </div>
@@ -265,4 +265,30 @@
             }
         });
     });
+
+    var populateCustomerAddress = function () {
+        var custNum = $('#order_CUSTNO').val();
+        $.ajax({
+            url: "../PopulateAddress",
+            data: "custNum=" + custNum,
+            type: "GET"
+        })
+
+            .success(function (data) {
+                console.log(data);
+                updateFields(data);
+            });
+    };
+
+    var updateFields = function (data) {
+        $('#order_CSNAME').val($.trim(data.CSNAME));
+        $("#order_CSADR1").val($.trim(data.CSADR1));
+        $("#order_CSADR2").val($.trim(data.CSADR2));
+        $("#order_CSADR3").val($.trim(data.CSADR3));
+        $("#order_CSCITY").val($.trim(data.CSCITY));
+        $("#order_CSST").val($.trim(data.CSST));
+        $("#order_CSZIP").val($.trim(data.CSZIP));
+        $("#order_CSCOUNTRY").val($.trim(data.CSCOUNTRY));
+        $("#order_CSATTN").val(d$.trim(ata.CSATTN));
+    };
 </script>
