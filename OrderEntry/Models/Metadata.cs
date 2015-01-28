@@ -13,11 +13,6 @@ namespace OrderEntry.Models
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}",ApplyFormatInEditMode=true)]
         public Nullable<System.DateTime> ODATE { get; set; }
 
-        [Required(ErrorMessage="Required")]
-        [DisplayName("Ship Date")]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}",ApplyFormatInEditMode=true)]
-        public Nullable<System.DateTime> SDATE { get; set; }
-
         [Required(ErrorMessage = "Required")]
         [DisplayName("Customer #")]
         [Range(0, int.MaxValue, ErrorMessage = "Please enter a valid Customer Number")]
@@ -85,9 +80,21 @@ namespace OrderEntry.Models
         [MaxLength(20, ErrorMessage = "Maximum length is 20 characters.")]
         public string CSATTN { get; set; }
 
+        [Required(ErrorMessage = "Required")]
+        [DisplayName("Ship Date")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        public Nullable<System.DateTime> SDATE { get; set; }
+
+        [Required(ErrorMessage = "Required")]
+        [DisplayName("Shipping Method")]
+        [MaxLength(35, ErrorMessage = "Maximum length is 35 characters.")]
+        public Nullable<System.DateTime> SHIP_VIA { get; set; }
+
         [DisplayName("Special Instructions")]
         [DataType(DataType.MultilineText)]
         [MaxLength(500, ErrorMessage = "Maximum length is 500 characters.")]
         public string REMARKS { get; set; }
+
+
     }
 }

@@ -187,16 +187,38 @@
                                 @Html.ValidationMessageFor(model => order.CSATTN)
                             </div>
                         </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+
+                    <div class="row">
+
                         <div class="col-md-6">
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 @Html.LabelFor(model => order.SDATE, new { @class = "label-colon" })
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-8">
                                 @Html.TextBoxFor(model => order.SDATE, new { @class = "messageDate" })
                                 @Html.ValidationMessageFor(model => order.SDATE)
                             </div>
                         </div>
-                        <div class="col-md-3"></div>
+                        <div class="col-md-6"></div>
+                    </div>
+                    <br />
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => order.SHIP_VIA, new { @class = "label-colon" })
+                            </div>
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(model => order.SHIP_VIA, new { @class = "extraLongInput" })
+                                @Html.ValidationMessageFor(model => order.SHIP_VIA)
+                            </div>
+
+                        </div>
+                        <div class="col-md-6"></div>
                     </div>
 
                 </fieldset>
