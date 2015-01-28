@@ -43,7 +43,7 @@ namespace OrderEntry.Models
 
         [Required(ErrorMessage = "Required")]
         [DisplayName("Sales Rep #")]
-        [MaxLength(20, ErrorMessage = "Maximum length is 20 characters.")]
+        [MaxLength(20, ErrorMessage = "Maximum length is 3 characters.")]
         public string SPERSON1 { get; set; }
 
         [Required(ErrorMessage = "Required")]

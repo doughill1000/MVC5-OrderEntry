@@ -18,6 +18,7 @@
         <br />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => order.ID)
+        @Html.HiddenFor(model => order.ODATE)
         <fieldset>
             <legend>Customer</legend>
 
@@ -25,23 +26,25 @@
                 <div class="col-md-6">
                     <div class="col-md-4">
 
-                        @Html.LabelFor(model => order.CUSTNA, new { @class = "label-colon" })
+                        @Html.LabelFor(model => order.CUSTNO, new { @class = "label-colon" })
 
                     </div>
                     <div class="col-md-8">
-                        @Html.DropDownListFor(model => order.CUSTNA, Model.Customers, "---Select a Customer---", new { @class = "dropdown" })
-                        @Html.ValidationMessageFor(model => order.CUSTNA)
+                        @Html.DropDownListFor(model => order.CUSTNO, Model.Customers, "---Select a Customer---", new { @class = "dropdown" })
+                        @Html.HiddenFor(model => order.CUSTNA)
+                        @Html.ValidationMessageFor(model => order.CUSTNO)
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="col-md-3">
 
-                        @Html.LabelFor(model => order.SNAME1, new { @class = "label-colon" })
+                        @Html.LabelFor(model => order.SPERSON1, new { @class = "label-colon" })
 
                     </div>
                     <div class="col-md-9">
-                        @Html.DropDownListFor(model => order.SNAME1, Model.SalesPersons, "---Select a Sales Person---", new { @class = "dropdown" })
-                        @Html.ValidationMessageFor(model => order.SNAME1)
+                        @Html.DropDownListFor(model => order.SPERSON1, Model.SalesPersons, "---Select a Sales Person---", new { @class = "dropdown" })
+                        @Html.HiddenFor(model => order.SNAME1)
+                        @Html.ValidationMessageFor(model => order.SPERSON1)
                     </div>
                 </div>
             </div>
@@ -203,8 +206,6 @@
         </div>
         <hr />
         <br />
-
-
         <div class="row">
             <div class="col-md-8">
                 <div class="col-md-3">
@@ -223,7 +224,7 @@
         <br />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -244,6 +245,24 @@
             buttonImage: "../../Images/Calendar.gif",
             buttonImageOnly: true,
             buttonText: "Select date",
+        });
+    });
+
+    $(function () {
+        $("form").submit(function () {
+            var dropDownText = $("#order_CUSTNO option:selected").text();
+            if (dropDownText.length > 0) {
+                $("#order_CUSTNA").attr("value", dropDownText);
+            }
+        });
+    });
+
+    $(function () {
+        $("form").submit(function () {
+            var dropDownText = $("#order_SPERSON1 option:selected").text();
+            if (dropDownText.length > 0) {
+                $("#order_SNAME1").attr("value", dropDownText);
+            }
         });
     });
 </script>

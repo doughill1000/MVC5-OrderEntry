@@ -106,7 +106,7 @@ namespace OrderEntry.Controllers
         {
             if (ModelState.IsValid)
             {
-                orderRepository.Edit(order);
+                orderRepository.Update(order);
                 return RedirectToAction("Index");
             }
             return View(order);
