@@ -71,7 +71,9 @@ namespace OrderEntry.Models.Repository
         /// <returns>A list of all orders</returns>
         public List<Order> GetAll()
         {
-            List<Order> orders = db.Orders.ToList();
+            List<Order> orders = db.Orders
+                .OrderBy(o => o.ODATE)
+                .ToList();
 
             return orders;
         }
