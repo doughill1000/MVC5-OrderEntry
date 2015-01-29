@@ -14,7 +14,7 @@ namespace OrderEntry.Models
     
     public partial class ShippingMethod
     {
-        public int Id { get; set; }
+        public System.Guid Id { get; set; }
         public string Name { get; set; }
         public bool Active { get; set; }
     }

@@ -15,5 +15,7 @@ namespace OrderEntry.Models.Orders
         public List<SelectListItem> Customers { get; set; }
 
         public List<SelectListItem> SalesPersons { get; set; }
+
+        public ShippingMethod ShippingMethod { get; set; }
     }
 }

@@ -14,17 +14,10 @@ namespace OrderEntry.Models
     
     public partial class SalesPerson
     {
-        public SalesPerson()
-        {
-            this.SalesPerson1 = new HashSet<SalesPerson>();
-        }
-    
-        public int Id { get; set; }
+        public System.Guid Id { get; set; }
+        public int SalesId { get; set; }
         public string Name { get; set; }
         public bool Active { get; set; }
         public Nullable<int> SalesDirector { get; set; }
-    
-        public virtual ICollection<SalesPerson> SalesPerson1 { get; set; }
-        public virtual SalesPerson SalesPerson2 { get; set; }
     }
 }

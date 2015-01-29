@@ -100,40 +100,28 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SalesId" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
           <Property Name="SalesDirector" Type="int" />
         </EntityType>
-        <EntityType Name="ShippingMethods">
+        <EntityType Name="ShippingMethod">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="35" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK_SalesPerson_SalesPerson">
-          <End Role="SalesPerson" Type="Self.SalesPerson" Multiplicity="0..1" />
-          <End Role="SalesPerson1" Type="Self.SalesPerson" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SalesPerson">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SalesPerson1">
-              <PropertyRef Name="SalesDirector" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_SalesPerson_SalesPerson" />-->
         <EntityContainer Name="OrderEntryModelStoreContainer">
           <EntitySet Name="LineItem" EntityType="Self.LineItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SalesPerson" EntityType="Self.SalesPerson" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ShippingMethods" EntityType="Self.ShippingMethods" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_SalesPerson_SalesPerson" Association="Self.FK_SalesPerson_SalesPerson">
-            <End Role="SalesPerson" EntitySet="SalesPerson" />
-            <End Role="SalesPerson1" EntitySet="SalesPerson" />
-          </AssociationSet>
+          <EntitySet Name="ShippingMethod" EntityType="Self.ShippingMethod" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -234,40 +222,23 @@
           <EntitySet Name="LineItems" EntityType="Self.LineItem" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="SalesPersons" EntityType="OrderEntryModel.SalesPerson" />
-          <AssociationSet Name="FK_SalesPerson_SalesPerson" Association="OrderEntryModel.FK_SalesPerson_SalesPerson">
-            <End Role="SalesPerson" EntitySet="SalesPersons" />
-            <End Role="SalesPerson1" EntitySet="SalesPersons" />
-          </AssociationSet>
           <EntitySet Name="ShippingMethods" EntityType="OrderEntryModel.ShippingMethod" />
         </EntityContainer>
         <EntityType Name="SalesPerson">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SalesId" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <Property Name="SalesDirector" Type="Int32" />
-          <NavigationProperty Name="SalesPerson1" Relationship="OrderEntryModel.FK_SalesPerson_SalesPerson" FromRole="SalesPerson" ToRole="SalesPerson1" />
-          <NavigationProperty Name="SalesPerson2" Relationship="OrderEntryModel.FK_SalesPerson_SalesPerson" FromRole="SalesPerson1" ToRole="SalesPerson" />
         </EntityType>
-        <Association Name="FK_SalesPerson_SalesPerson">
-          <End Type="OrderEntryModel.SalesPerson" Role="SalesPerson" Multiplicity="0..1" />
-          <End Type="OrderEntryModel.SalesPerson" Role="SalesPerson1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SalesPerson">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SalesPerson1">
-              <PropertyRef Name="SalesDirector" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="ShippingMethod">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
         </EntityType>
@@ -375,13 +346,14 @@
                 <ScalarProperty Name="SalesDirector" ColumnName="SalesDirector" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SalesId" ColumnName="SalesId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ShippingMethods">
             <EntityTypeMapping TypeName="OrderEntryModel.ShippingMethod">
-              <MappingFragment StoreEntitySet="ShippingMethods">
+              <MappingFragment StoreEntitySet="ShippingMethod">
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
