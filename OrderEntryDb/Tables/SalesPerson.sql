@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[SalesPerson]
+(
+	[Id] UNIQUEIDENTIFIER CONSTRAINT PK_SALESPERSON PRIMARY KEY,
+	[SalesId] INT NOT NULL UNIQUE,
+    [Name] VARCHAR(25) NOT NULL, 
+    [Active] BIT NOT NULL, 
+    [SalesDirector] INT NULL
+)
+GO
+ALTER TABLE SalesPerson
+ADD CONSTRAINT FK_SalesPerson_SalesPerson FOREIGN KEY (SalesDirector)
+REFERENCES SalesPerson (SalesId) 
