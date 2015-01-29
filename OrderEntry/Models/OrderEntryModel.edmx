@@ -105,6 +105,14 @@
           <Property Name="Active" Type="bit" Nullable="false" />
           <Property Name="SalesDirector" Type="int" />
         </EntityType>
+        <EntityType Name="ShippingMethods">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
         <Association Name="FK_SalesPerson_SalesPerson">
           <End Role="SalesPerson" Type="Self.SalesPerson" Multiplicity="0..1" />
           <End Role="SalesPerson1" Type="Self.SalesPerson" Multiplicity="*" />
@@ -121,6 +129,7 @@
           <EntitySet Name="LineItem" EntityType="Self.LineItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SalesPerson" EntityType="Self.SalesPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShippingMethods" EntityType="Self.ShippingMethods" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_SalesPerson_SalesPerson" Association="Self.FK_SalesPerson_SalesPerson">
             <End Role="SalesPerson" EntitySet="SalesPerson" />
             <End Role="SalesPerson1" EntitySet="SalesPerson" />
@@ -229,6 +238,7 @@
             <End Role="SalesPerson" EntitySet="SalesPersons" />
             <End Role="SalesPerson1" EntitySet="SalesPersons" />
           </AssociationSet>
+          <EntitySet Name="ShippingMethods" EntityType="OrderEntryModel.ShippingMethod" />
         </EntityContainer>
         <EntityType Name="SalesPerson">
           <Key>
@@ -253,6 +263,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ShippingMethod">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -355,6 +373,15 @@
             <EntityTypeMapping TypeName="OrderEntryModel.SalesPerson">
               <MappingFragment StoreEntitySet="SalesPerson">
                 <ScalarProperty Name="SalesDirector" ColumnName="SalesDirector" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShippingMethods">
+            <EntityTypeMapping TypeName="OrderEntryModel.ShippingMethod">
+              <MappingFragment StoreEntitySet="ShippingMethods">
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

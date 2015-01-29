@@ -28,5 +28,6 @@ namespace OrderEntry.Models
         public virtual DbSet<LineItem> LineItems { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<SalesPerson> SalesPersons { get; set; }
+        public virtual DbSet<ShippingMethod> ShippingMethods { get; set; }
     }
 }
