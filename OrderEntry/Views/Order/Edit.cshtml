@@ -1,7 +1,7 @@
 ﻿@model OrderEntry.Models.Orders.OrderViewModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
 @using (Html.BeginForm())
@@ -264,28 +264,40 @@
     $(function () {
         $(".messageDate").datepicker({
             showOn: "button",
-            buttonImage: "../../Images/Calendar.gif",
+            buttonImage: "../Images/Calendar.gif",
             buttonImageOnly: true,
-            buttonText: "Select date",
+            buttonText: "Select date"
         });
-    });
 
-    $(function () {
         $("form").submit(function () {
             var dropDownText = $("#order_CUSTNO option:selected").text();
             if (dropDownText.length > 0) {
                 $("#order_CUSTNA").attr("value", dropDownText);
             }
         });
-    });
 
-    $(function () {
         $("form").submit(function () {
             var dropDownText = $("#order_SPERSON1 option:selected").text();
             if (dropDownText.length > 0) {
                 $("#order_SNAME1").attr("value", dropDownText);
             }
         });
+
+        $("#order_SHIP_VIA").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "../GetShippingMethods",
+                    type: "POST",
+                    data: "text=" + $('#order_SHIP_VIA').val()
+                })
+
+                .success(function (data) {
+                    console.log(data);
+                    response(data);
+                })
+            }
+        });
+
     });
 
     var populateCustomerAddress = function () {
@@ -311,6 +323,8 @@
         $("#order_CSST").val($.trim(data.CSST));
         $("#order_CSZIP").val($.trim(data.CSZIP));
         $("#order_CSCOUNTRY").val($.trim(data.CSCOUNTRY));
-        $("#order_CSATTN").val(d$.trim(ata.CSATTN));
+        $("#order_CSATTN").val($.trim(data.CSATTN));
+        $("#order_SHIP_VIA").val($.trim(data.SHIP_VIA));
+
     };
 </script>

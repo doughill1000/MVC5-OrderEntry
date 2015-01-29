@@ -86,3 +86,11 @@ input.extraLongInput {
 .dropdown{
     height: 25px;
 }
+
+ul.ui-autocomplete {
+    list-style: none;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    width: 200px;
+}

@@ -146,11 +146,20 @@ namespace OrderEntry.Controllers
             base.Dispose(disposing);
         }
 
+        //[HttpPost]
         public JsonResult PopulateAddress(double custNum)
         {
             var customer = transprintRepository.GetByCustNum(custNum);
 
             return new JsonNetResult(customer, JsonRequestBehavior.DenyGet);            
+        }
+
+        //[HttpPost]
+        public JsonResult GetShippingMethods(String text)
+        {
+            var shippingMethods = orderRepository.GetAllActiveShippingMethods(text);
+
+            return new JsonNetResult(shippingMethods, JsonRequestBehavior.DenyGet);
         }
     }
 }

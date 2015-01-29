@@ -104,7 +104,7 @@ namespace OrderEntry.Models.Repository
                 .ToList()
                 .Select(s => new SelectListItem
                 {
-                    Value = s.Id.ToString(),
+                    Value = s.SalesId.ToString(),
                     Text = s.Name
 
                 }).OrderBy(c => c.Text).ToList();
@@ -112,7 +112,20 @@ namespace OrderEntry.Models.Repository
             return sales;
 
             throw new NotImplementedException();
-        } 
+        }
+        /// <summary>
+        /// Returns a list of all active shipping methods' names
+        /// </summary>
+        /// <returns>A list of all active shipping methods' names</returns>
+        public List<String> GetAllActiveShippingMethods(String text)
+        {
+            List<String> shippingMethods = db.ShippingMethods
+                .OrderBy(s => s.Name)
+                .Where(s => s.Active == true && s.Name.StartsWith(text))
+                .Select(s => s.Name)
+                .ToList();
 
+            return shippingMethods;
+        }
     }
 }

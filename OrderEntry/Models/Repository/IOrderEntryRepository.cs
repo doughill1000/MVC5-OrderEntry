@@ -51,6 +51,11 @@ namespace OrderEntry.Models.Repository
         /// <returns>List of sales persons</returns>
         List<SelectListItem> GetSalesPersons();
 
+        /// <summary>
+        /// Returns a list of all active shipping methods' names
+        /// </summary>
+        /// <returns>List of active shipping methods' names</returns>
+        List<String> GetAllActiveShippingMethods(String text);
         
     }
 }
