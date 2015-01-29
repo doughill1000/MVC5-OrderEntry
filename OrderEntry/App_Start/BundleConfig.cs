@@ -17,6 +17,18 @@ namespace OrderEntry
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                        "~/Scripts/jquery-ui-1.11.2.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jquerydatatables").Include(
+                       "~/Scripts/Datatables-1.10.4/jquery.dataTables.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquerydatatablescolumnfilter").Include(
+                       "~/Scripts/jquery.dataTables.columnFilter.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/moment").Include(
+                        "~/Scripts/moment.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/orders").Include(
+                        "~/Scripts/Orders/Orders.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -34,6 +46,12 @@ namespace OrderEntry
                       "~/Content/themes/base/core.css",
                       "~/Content/themes/base/datepicker.css",
                       "~/Content/themes/base/theme.css"));
+
+            bundles.Add(new StyleBundle("~/Content/themes/base/bundle").Include(
+                      "~/Content/themes/base/all.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Datatables-1.10.4/css/bundle").Include(
+                      "~/Content/Datatables-1.10.4/css/jquery.dataTables.css"));
         }
     }
 }
