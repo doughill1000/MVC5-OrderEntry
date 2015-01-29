@@ -196,7 +196,7 @@
                                 @Html.LabelFor(model => order.SDATE, new { @class = "label-colon" })
                             </div>
                             <div class="col-md-8">
-                                @Html.TextBoxFor(model => order.SDATE, new { @class = "orderDate" })
+                                @Html.TextBoxFor(model => order.SDATE, new { @class = "shipDate" })
                                 @Html.ValidationMessageFor(model => order.SDATE)
                             </div>
                         </div>                       
@@ -263,7 +263,7 @@
 
 <script>
     $(function () {
-        $(".orderDate").datepicker({
+        $(".shipDate").datepicker({
             showOn: "button",
             buttonImage: "../Images/Calendar.gif",
             buttonImageOnly: true,
