@@ -263,14 +263,25 @@
 <script>
     $(function () {
 
+        //Creates a datepicker for shipdate. Minimum date is two weeks from the order creation date
         $(".shipDate").datepicker({
             showOn: "button",
             buttonImage: "../../Images/Calendar.gif",
             buttonImageOnly: true,
             buttonText: "Select date",
-            minDate: 14
+            @{    var minShipDate = Model.Order.ODATE.Value.AddDays(14);
+             @Html.Raw("minDate:'" + minShipDate + "'") }          
         });
 
+        //Formated Ship Date for editing mode
+        var date = new Date($("#order_SDATE").val());
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear();
+        var day = date.getDate();
+        var formattedDate = month + '/' + day + '/' + year;
+        $("#order_SDATE").val(formattedDate);
+
+        //Adds custno to submitted data to database
         $("form").submit(function () {
             var dropDownText = $("#order_CUSTNO option:selected").text();
             if (dropDownText.length > 0) {
@@ -278,6 +289,7 @@
             }
         });
 
+        //Adds sales person number to submitted data to database
         $("form").submit(function () {
             var dropDownText = $("#order_SPERSON1 option:selected").text();
             if (dropDownText.length > 0) {
@@ -285,6 +297,7 @@
             }
         });
 
+        //Autocomplete for shipping methods textbox
         $("#order_SHIP_VIA").autocomplete({
             source: function (request, response) {
                 $.ajax({
@@ -302,6 +315,7 @@
 
     });
 
+    //Populates address fields when customer is selected from dropdown
     var populateCustomerAddress = function () {
         var custNum = $('#order_CUSTNO').val();
         $.ajax({
@@ -316,6 +330,7 @@
             });
     };
 
+    //Function called by dropdown when it changes to update address field information
     var updateFields = function (data) {
         $('#order_CSNAME').val($.trim(data.CSNAME));
         $("#order_CSADR1").val($.trim(data.CSADR1));
