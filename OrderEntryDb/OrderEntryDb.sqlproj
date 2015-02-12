@@ -70,5 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="OrderEntryDb_Test.publish.xml" />
+    <None Include="OrderEntryDb.publish.xml" />
   </ItemGroup>
 </Project>

@@ -49,6 +49,11 @@ namespace OrderEntry.Models.Repository
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Get a customer by the Customer Number
+        /// </summary>
+        /// <param name="custnum">The customer number</param>
+        /// <returns>A customer</returns>
         public Customer GetByCustNum(double custnum)
         {
             Customer customer = db.Customers.Where(c => c.CUSTNO == custnum).First();
