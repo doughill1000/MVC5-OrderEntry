@@ -1,0 +1,170 @@
+﻿@model OrderEntry.Models.Separation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Separation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DesignNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesignNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DesignName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesignName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustDesignNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustDesignNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustDesignName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustDesignName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoldTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoldTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Disk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Disk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Swatch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Swatch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Artwork)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artwork)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateReceived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateReceived)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToBeEngraved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToBeEngraved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SentToSeparation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SentToSeparation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SentToEngraveDept)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SentToEngraveDept)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DesignDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesignDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DesignCoordinates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesignCoordinates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebUpload)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebUpload)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeparationCharges)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeparationCharges)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeparationChargesDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeparationChargesDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DesignId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

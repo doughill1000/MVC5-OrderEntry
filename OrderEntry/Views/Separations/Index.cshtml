@@ -1,0 +1,141 @@
+﻿@model IEnumerable<OrderEntry.Models.Separation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DesignNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DesignName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustDesignNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustDesignName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Owner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoldTo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Disk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Swatch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Artwork)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateReceived)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToBeEngraved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SentToSeparation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SentToEngraveDept)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DesignDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DesignCoordinates)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebUpload)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeparationCharges)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeparationChargesDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DesignNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DesignName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustDesignNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustDesignName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Owner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoldTo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Disk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Swatch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Artwork)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateReceived)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToBeEngraved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SentToSeparation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SentToEngraveDept)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DesignDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DesignCoordinates)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WebUpload)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeparationCharges)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeparationChargesDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DesignId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DesignId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DesignId })
+        </td>
+    </tr>
+}
+
+</table>
