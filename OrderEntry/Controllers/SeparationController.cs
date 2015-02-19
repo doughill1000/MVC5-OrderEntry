@@ -50,9 +50,9 @@ namespace OrderEntry.Controllers
         // GET: Separation/Create
         public ActionResult Create()
         {
-            SeparationViewModel model = new SeparationViewModel();
+             SeparationViewModel model = new SeparationViewModel();
 
-            return View(model);
+             return View(model);
         }
 
         // POST: Separation/Create
