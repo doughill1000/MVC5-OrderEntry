@@ -108,9 +108,9 @@
         </EntityType>
         <EntityType Name="Separation">
           <Key>
-            <PropertyRef Name="DesignId" />
+            <PropertyRef Name="SeparationId" />
           </Key>
-          <Property Name="DesignId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SeparationId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="DesignNum" Type="varchar" MaxLength="10" />
           <Property Name="DesignName" Type="varchar" MaxLength="75" />
           <Property Name="CustDesignNum" Type="varchar" MaxLength="15" />
@@ -272,15 +272,16 @@ warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are
         </EntityType>
         <EntityType Name="Separation">
           <Key>
-            <PropertyRef Name="DesignId" />
+            <PropertyRef Name="SeparationId" />
           </Key>
-          <Property Name="DesignId" Type="Guid" Nullable="false" />
+          <Property Name="SeparationId" Type="Guid" Nullable="false" />
           <Property Name="DesignNum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="DesignName" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
           <Property Name="CustDesignNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="CustDesignName" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
           <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SoldTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Separator" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Disk" Type="Boolean" />
           <Property Name="Swatch" Type="Boolean" />
           <Property Name="Artwork" Type="Boolean" />
@@ -294,7 +295,6 @@ warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are
           <Property Name="Comments" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="SeparationCharges" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SeparationChargesDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Separator" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -417,7 +417,6 @@ warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are
           <EntitySetMapping Name="Separations">
             <EntityTypeMapping TypeName="OrderEntryModel.Separation">
               <MappingFragment StoreEntitySet="Separation">
-                <ScalarProperty Name="Separator" ColumnName="Separator" />
                 <ScalarProperty Name="SeparationChargesDescription" ColumnName="SeparationChargesDescription" />
                 <ScalarProperty Name="SeparationCharges" ColumnName="SeparationCharges" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />
@@ -431,13 +430,14 @@ warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are
                 <ScalarProperty Name="Artwork" ColumnName="Artwork" />
                 <ScalarProperty Name="Swatch" ColumnName="Swatch" />
                 <ScalarProperty Name="Disk" ColumnName="Disk" />
+                <ScalarProperty Name="Separator" ColumnName="Separator" />
                 <ScalarProperty Name="SoldTo" ColumnName="SoldTo" />
                 <ScalarProperty Name="Owner" ColumnName="Owner" />
                 <ScalarProperty Name="CustDesignName" ColumnName="CustDesignName" />
                 <ScalarProperty Name="CustDesignNum" ColumnName="CustDesignNum" />
                 <ScalarProperty Name="DesignName" ColumnName="DesignName" />
                 <ScalarProperty Name="DesignNum" ColumnName="DesignNum" />
-                <ScalarProperty Name="DesignId" ColumnName="DesignId" />
+                <ScalarProperty Name="SeparationId" ColumnName="SeparationId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

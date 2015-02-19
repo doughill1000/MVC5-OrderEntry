@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="OrderEntryModel.Order" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OrderEntryModel.SalesPerson" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="OrderEntryModel.ShippingMethod" Width="1.5" PointX="5.375" PointY="3.75" />
-        <EntityTypeShape EntityType="OrderEntryModel.Separation" Width="1.5" PointX="10.5" PointY="1.25" />
+        <EntityTypeShape EntityType="OrderEntryModel.Separation" Width="1.5" PointX="9.375" PointY="1.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
