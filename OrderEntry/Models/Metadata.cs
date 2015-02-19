@@ -127,6 +127,9 @@ namespace OrderEntry.Models
         [DisplayName("Sold To")]
         public string SoldTo { get; set; }
 
+        [MaxLength(25, ErrorMessage="Maximum Length is 25 characters.")]
+        public string Separator { get; set; }
+
         public Nullable<bool> Disk { get; set; }
 
         public Nullable<bool> Swatch { get; set; }
