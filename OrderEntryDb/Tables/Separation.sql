@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Separation]
 (
-	[DesignId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+	[SeparationId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
     [DesignNum] VARCHAR(10) NULL, 
     [DesignName] VARCHAR(75) NULL, 
 	[CustDesignNum] Varchar(15) NULL,
