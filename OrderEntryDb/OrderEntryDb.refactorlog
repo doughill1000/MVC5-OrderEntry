@@ -371,4 +371,53 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Name" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="8080a297-d4e0-438e-b391-ccc94b8bfe57" ChangeDateTime="02/19/2015 16:48:35">
+    <Property Name="ElementName" Value="[dbo].[Design].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Design]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DesignId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7a32f7e2-fa6a-4b7f-a946-7810c5ac807c" ChangeDateTime="02/19/2015 16:50:14">
+    <Property Name="ElementName" Value="[dbo].[Design].[Sold To]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Design]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SoldTo" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3708f1e7-8032-447d-8ffd-7ba07101b996" ChangeDateTime="02/19/2015 16:50:16">
+    <Property Name="ElementName" Value="[dbo].[Design].[Collection Code]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Design]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CollectionCode" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1cafdae8-3d68-4263-b4d2-2fd92c8c4362" ChangeDateTime="02/19/2015 16:53:52">
+    <Property Name="ElementName" Value="[dbo].[Design].[ScheduleForEngrave]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Design]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ToBeEngraved" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="da1ec9a9-01dc-444b-89b0-5a94a3bd8875" ChangeDateTime="02/19/2015 16:58:44">
+    <Property Name="ElementName" Value="[dbo].[Design].[DateToColor]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Design]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DateSentTo" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a442346e-2dac-4f20-a1cc-72aa03a56919" ChangeDateTime="02/19/2015 16:58:53">
+    <Property Name="ElementName" Value="[dbo].[Design].[DateSentToEngraveDept]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Design]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SentToEngraveDept" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3ce793d4-3738-439e-90ce-5ab7e2486519" ChangeDateTime="02/19/2015 16:59:17">
+    <Property Name="ElementName" Value="[dbo].[Design].[DateSentTo]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Design]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SentToSeparation" />
+  </Operation>
 </Operations>
