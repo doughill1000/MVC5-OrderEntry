@@ -89,6 +89,10 @@ namespace OrderEntry.Models.Repository
             return order;
         }
 
+        /// <summary>
+        /// Updates an order
+        /// </summary>
+        /// <param name="order">The order to be updated</param>
         public void Update(Order order)
         {
             db.Entry(order).State = EntityState.Modified;
