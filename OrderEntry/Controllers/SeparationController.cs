@@ -7,17 +7,29 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OrderEntry.Models;
+using OrderEntry.Models.Repository;
+using OrderEntry.Models.Orders;
 
 namespace OrderEntry.Controllers
 {
     public class SeparationController : Controller
     {
-        private OrderEntryEntities db = new OrderEntryEntities();
+        private ISeparationRepository separationRepository;
+        private ITransprintRepository transprintRepository;
 
+        public SeparationController()
+            : this(new SeparationRepository(), new TransprintRepository())
+        { }
+
+        public SeparationController(ISeparationRepository separationRepository, ITransprintRepository transprintRepository)
+        {
+            this.separationRepository = separationRepository;
+            this.transprintRepository = transprintRepository;
+        }
         // GET: Separation
         public ActionResult Index()
         {
-            return View(db.Separations.ToList());
+            return View(separationRepository.GetAll());
         }
 
         // GET: Separation/Details/5
@@ -27,7 +39,7 @@ namespace OrderEntry.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Separation separation = db.Separations.Find(id);
+            Separation separation = separationRepository.GetById(id);
             if (separation == null)
             {
                 return HttpNotFound();
@@ -38,7 +50,9 @@ namespace OrderEntry.Controllers
         // GET: Separation/Create
         public ActionResult Create()
         {
-            return View();
+            SeparationViewModel model = new SeparationViewModel();
+
+            return View(model);
         }
 
         // POST: Separation/Create
@@ -46,14 +60,14 @@ namespace OrderEntry.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DesignId,DesignNum,DesignName,CustDesignNum,CustDesignName,Owner,SoldTo,Disk,Swatch,Artwork,DateReceived,ToBeEngraved,SentToSeparation,SentToEngraveDept,DesignDescription,DesignCoordinates,WebUpload,Comments,SeparationCharges,SeparationChargesDescription")] Separation separation)
+        public ActionResult Create([Bind(Include = "SeparationId,DesignNum,DesignName,CustDesignNum,CustDesignName,Owner,SoldTo,Disk,Swatch,Artwork,DateReceived,ToBeEngraved,SentToSeparation,SentToEngraveDept,DesignDescription,DesignCoordinates,WebUpload,Comments,SeparationCharges,SeparationChargesDescription")] Separation separation)
         {
             if (ModelState.IsValid)
             {
-                separation.DesignId = Guid.NewGuid();
-                db.Separations.Add(separation);
-                db.SaveChanges();
+                separation.SeparationId = Guid.NewGuid();
+                separationRepository.Create(separation);
                 return RedirectToAction("Index");
+                
             }
 
             return View(separation);
@@ -62,16 +76,18 @@ namespace OrderEntry.Controllers
         // GET: Separation/Edit/5
         public ActionResult Edit(Guid? id)
         {
+            SeparationViewModel model = new SeparationViewModel();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Separation separation = db.Separations.Find(id);
+            Separation separation = separationRepository.GetById(id);
             if (separation == null)
             {
                 return HttpNotFound();
             }
-            return View(separation);
+            return View(model);
         }
 
         // POST: Separation/Edit/5
@@ -79,12 +95,11 @@ namespace OrderEntry.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DesignId,DesignNum,DesignName,CustDesignNum,CustDesignName,Owner,SoldTo,Disk,Swatch,Artwork,DateReceived,ToBeEngraved,SentToSeparation,SentToEngraveDept,DesignDescription,DesignCoordinates,WebUpload,Comments,SeparationCharges,SeparationChargesDescription")] Separation separation)
+        public ActionResult Edit([Bind(Include = "SeparationId,DesignNum,DesignName,CustDesignNum,CustDesignName,Owner,SoldTo,Disk,Swatch,Artwork,DateReceived,ToBeEngraved,SentToSeparation,SentToEngraveDept,DesignDescription,DesignCoordinates,WebUpload,Comments,SeparationCharges,SeparationChargesDescription")] Separation separation)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(separation).State = EntityState.Modified;
-                db.SaveChanges();
+                separationRepository.Update(separation);
                 return RedirectToAction("Index");
             }
             return View(separation);
@@ -97,7 +112,7 @@ namespace OrderEntry.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Separation separation = db.Separations.Find(id);
+            Separation separation = separationRepository.GetById(id);
             if (separation == null)
             {
                 return HttpNotFound();
@@ -110,9 +125,7 @@ namespace OrderEntry.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            Separation separation = db.Separations.Find(id);
-            db.Separations.Remove(separation);
-            db.SaveChanges();
+            separationRepository.Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -120,7 +133,7 @@ namespace OrderEntry.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                separationRepository.Dispose();
             }
             base.Dispose(disposing);
         }
