@@ -8,4 +8,7 @@ namespace OrderEntry.Models
 {
     [MetadataType(typeof(OrderMetadata))]
     public partial class Order { }
+
+    [MetadataType(typeof(SeparationMetaData))]
+    public partial class Separation { }
 }
