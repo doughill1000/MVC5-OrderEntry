@@ -22,16 +22,16 @@ namespace OrderEntry.Models
         public string Owner { get; set; }
         public string SoldTo { get; set; }
         public string Separator { get; set; }
-        public Nullable<bool> Disk { get; set; }
-        public Nullable<bool> Swatch { get; set; }
-        public Nullable<bool> Artwork { get; set; }
+        public bool Disk { get; set; }
+        public bool Swatch { get; set; }
+        public bool Artwork { get; set; }
         public Nullable<System.DateTime> DateReceived { get; set; }
-        public Nullable<bool> ToBeEngraved { get; set; }
+        public bool ToBeEngraved { get; set; }
         public Nullable<System.DateTime> SentToSeparation { get; set; }
         public Nullable<System.DateTime> SentToEngraveDept { get; set; }
         public string DesignDescription { get; set; }
         public string DesignCoordinates { get; set; }
-        public Nullable<bool> WebUpload { get; set; }
+        public bool WebUpload { get; set; }
         public string Comments { get; set; }
         public Nullable<decimal> SeparationCharges { get; set; }
         public string SeparationChargesDescription { get; set; }
