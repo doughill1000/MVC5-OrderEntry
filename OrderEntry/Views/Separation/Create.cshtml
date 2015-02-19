@@ -1,95 +1,131 @@
 ﻿@model OrderEntry.Models.Orders.SeparationViewModel
 
-@{
-    ViewBag.Title = "Create";
-}
+<title>New Separation</title>
 
-<h2>Create</h2>
+<h2>New Separation</h2>
 
-
-@using (Html.BeginForm()) 
+<br />
+@using (Html.BeginForm())
 {
     var separation = Model.Separation;
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Separation</h4>
-        <hr />
+
         @Html.ValidationSummary(true)
-        <div class="form-group">
-            @Html.LabelFor(model => separation.DesignNum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.DesignNum)
-                @Html.ValidationMessageFor(model => separation.DesignNum)
+        <fieldset>
+            <legend>Design Information</legend>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="col-md-5">
+                        @Html.LabelFor(model => separation.DesignNum, new { @class = "label-colon" })
+                    </div>
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(model => separation.DesignNum)
+                        @Html.ValidationMessageFor(model => separation.DesignNum)
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="col-md-5">
+                        @Html.LabelFor(model => separation.DesignName, new { @class = "label-colon" })
+                    </div>
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(model => separation.DesignName)
+                        @Html.ValidationMessageFor(model => separation.DesignName)
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="col-md-5">
+                        @Html.LabelFor(model => separation.Owner, new { @class = "label-colon" })
+                    </div>
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(model => separation.Owner)
+                        @Html.ValidationMessageFor(model => separation.Owner)
+                    </div>
+                </div>
             </div>
+
+            <br />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="col-md-5">
+                        @Html.LabelFor(model => separation.CustDesignNum, new { @class = "label-colon" })
+                    </div>
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(model => separation.CustDesignNum)
+                        @Html.ValidationMessageFor(model => separation.CustDesignNum)
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="col-md-5">
+                        @Html.LabelFor(model => separation.CustDesignName, new { @class = "label-colon" })
+                    </div>
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(model => separation.CustDesignName)
+                        @Html.ValidationMessageFor(model => separation.CustDesignName)
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="col-md-5">
+                        @Html.LabelFor(model => separation.SoldTo, new { @class = "label-colon" })
+                    </div>
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(model => separation.SoldTo)
+                        @Html.ValidationMessageFor(model => separation.SoldTo)
+                    </div>
+                </div>
+
+            </div>
+            <br />
+        </fieldset>
+
+
+        <div class="row">
+            <div class="col-md-2">
+                <fieldset>
+                    <legend>Data Format</legend>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => separation.Disk) &nbsp;
+                        </div>
+                        @Html.EditorFor(model => separation.Disk)
+                        @Html.ValidationMessageFor(model => separation.Disk)
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => separation.Swatch) &nbsp;
+                        </div>
+                        @Html.EditorFor(model => separation.Swatch)
+                        @Html.ValidationMessageFor(model => separation.Swatch)
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => separation.Artwork) &nbsp;
+                        </div>
+                        @Html.EditorFor(model => separation.Artwork)
+                        @Html.ValidationMessageFor(model => separation.Artwork)
+                    </div>
+
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+
+
+            </div>
+
         </div>
+        <br /><br />
+
+        @*
 
         <div class="form-group">
-            @Html.LabelFor(model => separation.DesignName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.DesignName)
-                @Html.ValidationMessageFor(model => separation.DesignName)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.CustDesignNum, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.CustDesignNum)
-                @Html.ValidationMessageFor(model => separation.CustDesignNum)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.CustDesignName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.CustDesignName)
-                @Html.ValidationMessageFor(model => separation.CustDesignName)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.Owner, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.Owner)
-                @Html.ValidationMessageFor(model => separation.Owner)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.SoldTo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.SoldTo)
-                @Html.ValidationMessageFor(model => separation.SoldTo)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.Disk, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.Disk)
-                @Html.ValidationMessageFor(model => separation.Disk)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.Swatch, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.Swatch)
-                @Html.ValidationMessageFor(model => separation.Swatch)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.Artwork, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.Artwork)
-                @Html.ValidationMessageFor(model => separation.Artwork)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.DateReceived, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => separation.DateReceived, new { @class = "label-colon" })
             <div class="col-md-10">
                 @Html.EditorFor(model => separation.DateReceived)
                 @Html.ValidationMessageFor(model => separation.DateReceived)
@@ -97,7 +133,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => separation.ToBeEngraved, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => separation.ToBeEngraved, new { @class = "label-colon" })
             <div class="col-md-10">
                 @Html.EditorFor(model => separation.ToBeEngraved)
                 @Html.ValidationMessageFor(model => separation.ToBeEngraved)
@@ -105,7 +141,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => separation.SentToSeparation, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => separation.SentToSeparation, new { @class = "label-colon" })
             <div class="col-md-10">
                 @Html.EditorFor(model => separation.SentToSeparation)
                 @Html.ValidationMessageFor(model => separation.SentToSeparation)
@@ -113,7 +149,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => separation.SentToEngraveDept, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => separation.SentToEngraveDept, new { @class = "label-colon" })
             <div class="col-md-10">
                 @Html.EditorFor(model => separation.SentToEngraveDept)
                 @Html.ValidationMessageFor(model => separation.SentToEngraveDept)
@@ -121,7 +157,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => separation.DesignDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => separation.DesignDescription, new { @class = "label-colon" })
             <div class="col-md-10">
                 @Html.EditorFor(model => separation.DesignDescription)
                 @Html.ValidationMessageFor(model => separation.DesignDescription)
@@ -129,7 +165,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => separation.DesignCoordinates, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => separation.DesignCoordinates, new { @class = "label-colon" })
             <div class="col-md-10">
                 @Html.EditorFor(model => separation.DesignCoordinates)
                 @Html.ValidationMessageFor(model => separation.DesignCoordinates)
@@ -137,7 +173,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => separation.WebUpload, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => separation.WebUpload, new { @class = "label-colon" })
             <div class="col-md-10">
                 @Html.EditorFor(model => separation.WebUpload)
                 @Html.ValidationMessageFor(model => separation.WebUpload)
@@ -145,7 +181,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => separation.Comments, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => separation.Comments, new { @class = "label-colon" })
             <div class="col-md-10">
                 @Html.EditorFor(model => separation.Comments)
                 @Html.ValidationMessageFor(model => separation.Comments)
@@ -153,7 +189,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => separation.SeparationCharges, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => separation.SeparationCharges, new { @class = "label-colon" })
             <div class="col-md-10">
                 @Html.EditorFor(model => separation.SeparationCharges)
                 @Html.ValidationMessageFor(model => separation.SeparationCharges)
@@ -161,7 +197,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => separation.SeparationChargesDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => separation.SeparationChargesDescription, new { @class = "label-colon" })
             <div class="col-md-10">
                 @Html.EditorFor(model => separation.SeparationChargesDescription)
                 @Html.ValidationMessageFor(model => separation.SeparationChargesDescription)
@@ -172,7 +208,7 @@
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
-        </div>
+        </div>*@
     </div>
 }
 
