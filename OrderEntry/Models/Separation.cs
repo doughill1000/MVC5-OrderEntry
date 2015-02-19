@@ -34,5 +34,6 @@ namespace OrderEntry.Models
         public string Comments { get; set; }
         public Nullable<decimal> SeparationCharges { get; set; }
         public string SeparationChargesDescription { get; set; }
+        public string Separator { get; set; }
     }
 }
