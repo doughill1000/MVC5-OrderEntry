@@ -163,7 +163,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\SeparationsController.cs" />
+    <Compile Include="Controllers\SeparationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -441,11 +441,11 @@
     <Content Include="Views\Order\Details.cshtml" />
     <Content Include="Views\Order\Edit.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
-    <Content Include="Views\Separations\Create.cshtml" />
-    <Content Include="Views\Separations\Delete.cshtml" />
-    <Content Include="Views\Separations\Details.cshtml" />
-    <Content Include="Views\Separations\Edit.cshtml" />
-    <Content Include="Views\Separations\Index.cshtml" />
+    <Content Include="Views\Separation\Create.cshtml" />
+    <Content Include="Views\Separation\Delete.cshtml" />
+    <Content Include="Views\Separation\Details.cshtml" />
+    <Content Include="Views\Separation\Edit.cshtml" />
+    <Content Include="Views\Separation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

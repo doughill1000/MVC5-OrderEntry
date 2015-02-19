@@ -10,17 +10,17 @@ using OrderEntry.Models;
 
 namespace OrderEntry.Controllers
 {
-    public class SeparationsController : Controller
+    public class SeparationController : Controller
     {
         private OrderEntryEntities db = new OrderEntryEntities();
 
-        // GET: Separations
+        // GET: Separation
         public ActionResult Index()
         {
             return View(db.Separations.ToList());
         }
 
-        // GET: Separations/Details/5
+        // GET: Separation/Details/5
         public ActionResult Details(Guid? id)
         {
             if (id == null)
@@ -35,13 +35,13 @@ namespace OrderEntry.Controllers
             return View(separation);
         }
 
-        // GET: Separations/Create
+        // GET: Separation/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Separations/Create
+        // POST: Separation/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -59,7 +59,7 @@ namespace OrderEntry.Controllers
             return View(separation);
         }
 
-        // GET: Separations/Edit/5
+        // GET: Separation/Edit/5
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -74,7 +74,7 @@ namespace OrderEntry.Controllers
             return View(separation);
         }
 
-        // POST: Separations/Edit/5
+        // POST: Separation/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -90,7 +90,7 @@ namespace OrderEntry.Controllers
             return View(separation);
         }
 
-        // GET: Separations/Delete/5
+        // GET: Separation/Delete/5
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -105,7 +105,7 @@ namespace OrderEntry.Controllers
             return View(separation);
         }
 
-        // POST: Separations/Delete/5
+        // POST: Separation/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
