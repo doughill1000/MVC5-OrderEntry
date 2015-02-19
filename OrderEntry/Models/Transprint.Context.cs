@@ -27,7 +27,7 @@ namespace OrderEntry.Models
     
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Colorway> Colorways { get; set; }
-        public virtual DbSet<Design> Designs { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
+        public virtual DbSet<Design> Designs { get; set; }
     }
 }

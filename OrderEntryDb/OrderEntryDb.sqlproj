@@ -64,7 +64,7 @@
     <Build Include="Tables\LineItem.sql" />
     <Build Include="Tables\SalesPerson.sql" />
     <Build Include="Tables\ShippingMethod.sql" />
-    <Build Include="Tables\Design.sql" />
+    <Build Include="Tables\Separation.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="OrderEntryDb.refactorlog" />

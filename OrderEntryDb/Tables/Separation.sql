@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Design]
+﻿CREATE TABLE [dbo].[Separation]
 (
 	[DesignId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
     [DesignNum] VARCHAR(10) NULL, 

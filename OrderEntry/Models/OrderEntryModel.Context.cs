@@ -29,5 +29,6 @@ namespace OrderEntry.Models
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<SalesPerson> SalesPersons { get; set; }
         public virtual DbSet<ShippingMethod> ShippingMethods { get; set; }
+        public virtual DbSet<Separation> Separations { get; set; }
     }
 }

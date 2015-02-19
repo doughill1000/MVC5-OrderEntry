@@ -5,31 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="OrderEntryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Design">
-          <Key>
-            <PropertyRef Name="DesignId" />
-          </Key>
-          <Property Name="DesignId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="DesignNum" Type="varchar" MaxLength="10" />
-          <Property Name="DesignName" Type="varchar" MaxLength="75" />
-          <Property Name="CustDesignNum" Type="varchar" MaxLength="15" />
-          <Property Name="CustDesignName" Type="varchar" MaxLength="75" />
-          <Property Name="Owner" Type="varchar" MaxLength="50" />
-          <Property Name="SoldTo" Type="varchar" MaxLength="50" />
-          <Property Name="Disk" Type="bit" />
-          <Property Name="Swatch" Type="bit" />
-          <Property Name="Artwork" Type="bit" />
-          <Property Name="DateReceived" Type="date" />
-          <Property Name="ToBeEngraved" Type="bit" />
-          <Property Name="SentToSeparation" Type="date" />
-          <Property Name="SentToEngraveDept" Type="date" />
-          <Property Name="DesignDescription" Type="varchar" MaxLength="25" />
-          <Property Name="DesignCoordinates" Type="varchar" MaxLength="15" />
-          <Property Name="WebUpload" Type="bit" />
-          <Property Name="Comments" Type="varchar" MaxLength="100" />
-          <Property Name="SeparationCharges" Type="money" />
-          <Property Name="SeparationChargesDescription" Type="varchar" MaxLength="50" />
-        </EntityType>
         <EntityType Name="LineItem">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -131,6 +106,31 @@
           <Property Name="Active" Type="bit" Nullable="false" />
           <Property Name="SalesDirector" Type="int" />
         </EntityType>
+        <EntityType Name="Separation">
+          <Key>
+            <PropertyRef Name="DesignId" />
+          </Key>
+          <Property Name="DesignId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DesignNum" Type="varchar" MaxLength="10" />
+          <Property Name="DesignName" Type="varchar" MaxLength="75" />
+          <Property Name="CustDesignNum" Type="varchar" MaxLength="15" />
+          <Property Name="CustDesignName" Type="varchar" MaxLength="75" />
+          <Property Name="Owner" Type="varchar" MaxLength="50" />
+          <Property Name="SoldTo" Type="varchar" MaxLength="50" />
+          <Property Name="Disk" Type="bit" />
+          <Property Name="Swatch" Type="bit" />
+          <Property Name="Artwork" Type="bit" />
+          <Property Name="DateReceived" Type="date" />
+          <Property Name="ToBeEngraved" Type="bit" />
+          <Property Name="SentToSeparation" Type="date" />
+          <Property Name="SentToEngraveDept" Type="date" />
+          <Property Name="DesignDescription" Type="varchar" MaxLength="25" />
+          <Property Name="DesignCoordinates" Type="varchar" MaxLength="15" />
+          <Property Name="WebUpload" Type="bit" />
+          <Property Name="Comments" Type="varchar" MaxLength="100" />
+          <Property Name="SeparationCharges" Type="money" />
+          <Property Name="SeparationChargesDescription" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="ShippingMethod">
           <Key>
             <PropertyRef Name="Id" />
@@ -143,10 +143,10 @@
 warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="FK_SalesPerson_SalesPerson" />-->
         <EntityContainer Name="OrderEntryModelStoreContainer">
-          <EntitySet Name="Design" EntityType="Self.Design" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LineItem" EntityType="Self.LineItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SalesPerson" EntityType="Self.SalesPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Separation" EntityType="Self.Separation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShippingMethod" EntityType="Self.ShippingMethod" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -249,7 +249,7 @@ warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="SalesPersons" EntityType="OrderEntryModel.SalesPerson" />
           <EntitySet Name="ShippingMethods" EntityType="OrderEntryModel.ShippingMethod" />
-          <EntitySet Name="Designs" EntityType="OrderEntryModel.Design" />
+          <EntitySet Name="Separations" EntityType="OrderEntryModel.Separation" />
         </EntityContainer>
         <EntityType Name="SalesPerson">
           <Key>
@@ -269,7 +269,7 @@ warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are
           <Property Name="Name" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="Design">
+        <EntityType Name="Separation">
           <Key>
             <PropertyRef Name="DesignId" />
           </Key>
@@ -412,9 +412,9 @@ warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Designs">
-            <EntityTypeMapping TypeName="OrderEntryModel.Design">
-              <MappingFragment StoreEntitySet="Design">
+          <EntitySetMapping Name="Separations">
+            <EntityTypeMapping TypeName="OrderEntryModel.Separation">
+              <MappingFragment StoreEntitySet="Separation">
                 <ScalarProperty Name="SeparationChargesDescription" ColumnName="SeparationChargesDescription" />
                 <ScalarProperty Name="SeparationCharges" ColumnName="SeparationCharges" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />
