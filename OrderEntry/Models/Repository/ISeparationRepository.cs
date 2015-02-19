@@ -28,20 +28,20 @@ namespace OrderEntry.Models.Repository
         /// Returns a list of all separations
         /// </summary>
         /// <returns>A list of all separations</returns>
-        List<Order> GetAll();
+        List<Separation> GetAll();
 
         /// <summary>
         /// Returns the separation with the specified ID (or null if no order is found)
         /// </summary>
         /// <param name="Id"></param>
         /// <returns>The separation with the specified ID</returns>
-        Order GetById(Guid? Id);
+        Separation GetById(Guid? Id);
 
         /// <summary>
         /// Updates a separation
         /// </summary>
-        /// <param name="order">The separation to update</param>
-        void Update(Order order);
+        /// <param name="separation">The separation to update</param>
+        void Update(Separation separation);
 
     }
 }
