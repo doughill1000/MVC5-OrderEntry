@@ -4,7 +4,32 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="OrderEntryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="OrderEntryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Design">
+          <Key>
+            <PropertyRef Name="DesignId" />
+          </Key>
+          <Property Name="DesignId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DesignNum" Type="varchar" MaxLength="10" />
+          <Property Name="DesignName" Type="varchar" MaxLength="75" />
+          <Property Name="CustDesignNum" Type="varchar" MaxLength="15" />
+          <Property Name="CustDesignName" Type="varchar" MaxLength="75" />
+          <Property Name="Owner" Type="varchar" MaxLength="50" />
+          <Property Name="SoldTo" Type="varchar" MaxLength="50" />
+          <Property Name="Disk" Type="bit" />
+          <Property Name="Swatch" Type="bit" />
+          <Property Name="Artwork" Type="bit" />
+          <Property Name="DateReceived" Type="date" />
+          <Property Name="ToBeEngraved" Type="bit" />
+          <Property Name="SentToSeparation" Type="date" />
+          <Property Name="SentToEngraveDept" Type="date" />
+          <Property Name="DesignDescription" Type="varchar" MaxLength="25" />
+          <Property Name="DesignCoordinates" Type="varchar" MaxLength="15" />
+          <Property Name="WebUpload" Type="bit" />
+          <Property Name="Comments" Type="varchar" MaxLength="100" />
+          <Property Name="SeparationCharges" Type="money" />
+          <Property Name="SeparationChargesDescription" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="LineItem">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -118,6 +143,7 @@
 warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="FK_SalesPerson_SalesPerson" />-->
         <EntityContainer Name="OrderEntryModelStoreContainer">
+          <EntitySet Name="Design" EntityType="Self.Design" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LineItem" EntityType="Self.LineItem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SalesPerson" EntityType="Self.SalesPerson" Schema="dbo" store:Type="Tables" />
@@ -223,6 +249,7 @@ warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="SalesPersons" EntityType="OrderEntryModel.SalesPerson" />
           <EntitySet Name="ShippingMethods" EntityType="OrderEntryModel.ShippingMethod" />
+          <EntitySet Name="Designs" EntityType="OrderEntryModel.Design" />
         </EntityContainer>
         <EntityType Name="SalesPerson">
           <Key>
@@ -241,6 +268,31 @@ warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are
           <Property Name="Id" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Design">
+          <Key>
+            <PropertyRef Name="DesignId" />
+          </Key>
+          <Property Name="DesignId" Type="Guid" Nullable="false" />
+          <Property Name="DesignNum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DesignName" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="CustDesignNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CustDesignName" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SoldTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Disk" Type="Boolean" />
+          <Property Name="Swatch" Type="Boolean" />
+          <Property Name="Artwork" Type="Boolean" />
+          <Property Name="DateReceived" Type="DateTime" Precision="0" />
+          <Property Name="ToBeEngraved" Type="Boolean" />
+          <Property Name="SentToSeparation" Type="DateTime" Precision="0" />
+          <Property Name="SentToEngraveDept" Type="DateTime" Precision="0" />
+          <Property Name="DesignDescription" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="DesignCoordinates" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="WebUpload" Type="Boolean" />
+          <Property Name="Comments" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SeparationCharges" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SeparationChargesDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -357,6 +409,32 @@ warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Designs">
+            <EntityTypeMapping TypeName="OrderEntryModel.Design">
+              <MappingFragment StoreEntitySet="Design">
+                <ScalarProperty Name="SeparationChargesDescription" ColumnName="SeparationChargesDescription" />
+                <ScalarProperty Name="SeparationCharges" ColumnName="SeparationCharges" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="WebUpload" ColumnName="WebUpload" />
+                <ScalarProperty Name="DesignCoordinates" ColumnName="DesignCoordinates" />
+                <ScalarProperty Name="DesignDescription" ColumnName="DesignDescription" />
+                <ScalarProperty Name="SentToEngraveDept" ColumnName="SentToEngraveDept" />
+                <ScalarProperty Name="SentToSeparation" ColumnName="SentToSeparation" />
+                <ScalarProperty Name="ToBeEngraved" ColumnName="ToBeEngraved" />
+                <ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+                <ScalarProperty Name="Artwork" ColumnName="Artwork" />
+                <ScalarProperty Name="Swatch" ColumnName="Swatch" />
+                <ScalarProperty Name="Disk" ColumnName="Disk" />
+                <ScalarProperty Name="SoldTo" ColumnName="SoldTo" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="CustDesignName" ColumnName="CustDesignName" />
+                <ScalarProperty Name="CustDesignNum" ColumnName="CustDesignNum" />
+                <ScalarProperty Name="DesignName" ColumnName="DesignName" />
+                <ScalarProperty Name="DesignNum" ColumnName="DesignNum" />
+                <ScalarProperty Name="DesignId" ColumnName="DesignId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
