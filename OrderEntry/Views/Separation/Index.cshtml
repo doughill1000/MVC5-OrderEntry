@@ -28,21 +28,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SoldTo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Disk)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Swatch)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Artwork)
-        </th>
+        </th>     
         <th>
             @Html.DisplayNameFor(model => model.DateReceived)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ToBeEngraved)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SentToSeparation)
@@ -51,22 +39,7 @@
             @Html.DisplayNameFor(model => model.SentToEngraveDept)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DesignDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DesignCoordinates)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WebUpload)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comments)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.SeparationCharges)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SeparationChargesDescription)
         </th>
         <th></th>
     </tr>
@@ -90,45 +63,18 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.SoldTo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Disk)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Swatch)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Artwork)
-        </td>
+        </td>       
         <td>
             @Html.DisplayFor(modelItem => item.DateReceived)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ToBeEngraved)
-        </td>
+        </td>       
         <td>
             @Html.DisplayFor(modelItem => item.SentToSeparation)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.SentToEngraveDept)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DesignDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DesignCoordinates)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WebUpload)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comments)
-        </td>
+        </td>       
         <td>
             @Html.DisplayFor(modelItem => item.SeparationCharges)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SeparationChargesDescription)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.SeparationId }) |
