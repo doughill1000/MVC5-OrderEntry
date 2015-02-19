@@ -109,12 +109,12 @@ namespace OrderEntry.Models
         public string DesignName { get; set; }
 
         [MaxLength(15, ErrorMessage = "Maximum length is 15 characters.")]
-        [DisplayName("Customer Design Number")]
+        [DisplayName("Cust Design Number")]
         [Required(ErrorMessage = "Required")]
         public string CustDesignNum { get; set; }
 
         [MaxLength(75, ErrorMessage = "Maximum length is 75 characters.")]
-        [DisplayName("Customer Design Name")]
+        [DisplayName("Cust Design Name")]
         [Required(ErrorMessage = "Required")]
         public string CustDesignName { get; set; }
 
