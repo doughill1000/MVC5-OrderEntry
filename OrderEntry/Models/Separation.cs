@@ -14,13 +14,14 @@ namespace OrderEntry.Models
     
     public partial class Separation
     {
-        public System.Guid DesignId { get; set; }
+        public System.Guid SeparationId { get; set; }
         public string DesignNum { get; set; }
         public string DesignName { get; set; }
         public string CustDesignNum { get; set; }
         public string CustDesignName { get; set; }
         public string Owner { get; set; }
         public string SoldTo { get; set; }
+        public string Separator { get; set; }
         public Nullable<bool> Disk { get; set; }
         public Nullable<bool> Swatch { get; set; }
         public Nullable<bool> Artwork { get; set; }
@@ -34,6 +35,5 @@ namespace OrderEntry.Models
         public string Comments { get; set; }
         public Nullable<decimal> SeparationCharges { get; set; }
         public string SeparationChargesDescription { get; set; }
-        public string Separator { get; set; }
     }
 }
