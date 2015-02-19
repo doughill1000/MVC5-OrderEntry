@@ -117,6 +117,7 @@
           <Property Name="CustDesignName" Type="varchar" MaxLength="75" />
           <Property Name="Owner" Type="varchar" MaxLength="50" />
           <Property Name="SoldTo" Type="varchar" MaxLength="50" />
+          <Property Name="Separator" Type="varchar" MaxLength="25" />
           <Property Name="Disk" Type="bit" />
           <Property Name="Swatch" Type="bit" />
           <Property Name="Artwork" Type="bit" />
@@ -293,6 +294,7 @@ warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are
           <Property Name="Comments" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="SeparationCharges" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SeparationChargesDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Separator" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -415,6 +417,7 @@ warning 6035: The relationship 'FK_SalesPerson_SalesPerson' has columns that are
           <EntitySetMapping Name="Separations">
             <EntityTypeMapping TypeName="OrderEntryModel.Separation">
               <MappingFragment StoreEntitySet="Separation">
+                <ScalarProperty Name="Separator" ColumnName="Separator" />
                 <ScalarProperty Name="SeparationChargesDescription" ColumnName="SeparationChargesDescription" />
                 <ScalarProperty Name="SeparationCharges" ColumnName="SeparationCharges" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />

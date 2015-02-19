@@ -7,6 +7,7 @@
 	[CustDesignName] VARCHAR(75) NULL,
     [Owner] VARCHAR(50) NULL, 
     [SoldTo] VARCHAR(50) NULL, 
+	[Separator] VARCHAR(25) NULL,
 	[Disk] BIT NULL,
 	[Swatch] BIT NULL,
 	[Artwork] BIT NULL,
