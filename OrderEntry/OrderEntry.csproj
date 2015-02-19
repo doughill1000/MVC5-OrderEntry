@@ -204,10 +204,13 @@
       <DependentUpon>OrderEntryModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Orders\OrderViewModel.cs" />
+    <Compile Include="Models\Orders\SeparationViewModel.cs" />
     <Compile Include="Models\PartialClasses.cs" />
     <Compile Include="Models\Repository\IOrderEntryRepository.cs" />
+    <Compile Include="Models\Repository\ISeparationRepository.cs" />
     <Compile Include="Models\Repository\ITransprintRepository.cs" />
     <Compile Include="Models\Repository\OrderEntryRepository.cs" />
+    <Compile Include="Models\Repository\SeparationRepository.cs" />
     <Compile Include="Models\Repository\TransprintRepository.cs" />
     <Compile Include="Models\SalesPerson.cs">
       <DependentUpon>OrderEntryModel.tt</DependentUpon>
