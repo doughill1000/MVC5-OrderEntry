@@ -130,7 +130,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\Doug\VisualStudio\orderentry\OrderEntry\OrderEntry.csproj">
+    <ProjectReference Include="..\OrderEntry\OrderEntry.csproj">
       <Project>{740A7D39-C7BC-4B2F-8648-6DDBC35CDCA0}</Project>
       <Name>OrderEntry</Name>
     </ProjectReference>
