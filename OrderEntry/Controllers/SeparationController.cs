@@ -87,6 +87,8 @@ namespace OrderEntry.Controllers
             {
                 return HttpNotFound();
             }
+
+            model.Separation = separation;
             return View(model);
         }
 
