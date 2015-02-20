@@ -2,7 +2,13 @@
 
 <title>Separations</title>
 
-<h2>Index</h2>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <span class="Header">Separations</span>
+    </div>
+</div>
+<br />
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -14,12 +20,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DesignName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustDesignNum)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustDesignName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Owner)
@@ -49,12 +49,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DesignName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustDesignNum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustDesignName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Owner)

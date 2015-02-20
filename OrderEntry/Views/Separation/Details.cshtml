@@ -2,11 +2,15 @@
 
 <title>Separation Details</title>
 
-<h2>Details</h2>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <span class="Header">Details</span>
+    </div>
+</div>
+<br />
 
 <div>
-    <h4>Separation</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.DesignNum)
@@ -163,6 +167,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.DesignId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SeparationId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
