@@ -71,8 +71,8 @@ input.extraLongInput {
 }
 
 .text-area{
-    height:140px;
-    width:1000px;
+    height:100px;
+    width:500px;
 }
 
 .table{
@@ -98,4 +98,13 @@ ul.ui-autocomplete {
 ui-datepicker-trigger
 {
 
+}
+
+.text-area-small{
+    height:60px;
+    width:250px;
+}
+
+body{
+    background-color:whitesmoke;
 }
