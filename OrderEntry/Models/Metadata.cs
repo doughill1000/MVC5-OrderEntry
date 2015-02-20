@@ -150,7 +150,7 @@ namespace OrderEntry.Models
         public Nullable<System.DateTime> SentToSeparation { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
-        [DisplayName("Sent to Engraving Dept")]
+        [DisplayName("Sent to Engrave Dept")]
         public Nullable<System.DateTime> SentToEngraveDept { get; set; }
 
         [MaxLength(25, ErrorMessage = "Maximum length is 25 characters.")]
@@ -168,6 +168,8 @@ namespace OrderEntry.Models
         public string Comments { get; set; }
 
         [DisplayName("Separation Charges")]
+        [DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]
+        [Range(0, double.MaxValue, ErrorMessage = "Please enter a valid amount")]
         public Nullable<decimal> SeparationCharges { get; set; }
 
         [MaxLength(50, ErrorMessage = "Maximum length is 50 characters.")]
