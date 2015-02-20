@@ -246,6 +246,7 @@
 }
 
 <script>
+    //Show a datepicker, minimum date is 2 weeks out
     $(function () {
         $(".shipDate").datepicker({
             showOn: "button",
@@ -255,6 +256,7 @@
             minDate: 14
         });
 
+        //Allows the customer name to be submitted through the dropdown selection
         $("form").submit(function () {
             var dropDownText = $("#order_CUSTNO option:selected").text();
             if (dropDownText.length > 0) {
@@ -262,6 +264,7 @@
             }
         });
 
+        //Allows the salesperson's name to be submitted through the dropdown selection
         $("form").submit(function () {
             var dropDownText = $("#order_SPERSON1 option:selected").text();
             if (dropDownText.length > 0) {
@@ -269,6 +272,7 @@
             }
         });
 
+        //Autocomplete for shipping methods. Derives data from database
         $("#order_SHIP_VIA").autocomplete({
             source: function (request, response) {
                 $.ajax({
@@ -286,6 +290,7 @@
 
     });
 
+    //Autopopulates Customer address information when dropdown is selected
     var populateCustomerAddress = function () {
         var custNum = $('#order_CUSTNO').val();
         $.ajax({
@@ -299,6 +304,7 @@
             });
     };
 
+    //Trims all of the data for address
     var updateFields = function (data) {
         $('#order_CSNAME').val($.trim(data.CSNAME));
         $("#order_CSADR1").val($.trim(data.CSADR1));
@@ -311,6 +317,5 @@
         $("#order_CSATTN").val($.trim(data.CSATTN));
         $("#order_SHIP_VIA").val($.trim(data.SHIP_VIA));
     };
-   
 
 </script>
