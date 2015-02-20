@@ -173,7 +173,7 @@ namespace OrderEntry.Models
         public Nullable<decimal> SeparationCharges { get; set; }
 
         [MaxLength(50, ErrorMessage = "Maximum length is 50 characters.")]
-        [DisplayName("Separation Charges Description")]
+        [DisplayName("Charge Description")]
         public string SeparationChargesDescription { get; set; }
     }
 }

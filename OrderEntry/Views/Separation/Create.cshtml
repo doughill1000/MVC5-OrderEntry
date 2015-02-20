@@ -168,14 +168,14 @@
         <br />
         <br />
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <fieldset>
                     <legend>Billing</legend>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             &nbsp; @Html.LabelFor(model => separation.SeparationCharges, new { @class = "label-colon" })
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-7">
                             @Html.EditorFor(model => separation.SeparationCharges)
                             @Html.ValidationMessageFor(model => separation.SeparationCharges)
 
@@ -183,10 +183,10 @@
                     </div>
                     <br />
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             &nbsp; @Html.LabelFor(model => separation.SeparationChargesDescription, new { @class = "label-colon" })
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-7">
                             @Html.TextAreaFor(model => separation.SeparationChargesDescription, new { @class = "text-area-small" })
                             @Html.ValidationMessageFor(model => separation.SeparationChargesDescription)
                         </div>
@@ -194,6 +194,8 @@
                 </fieldset>
             </div>
         </div>
+        <br />
+        <br />
         <div class="row">
             <div class="col-md-5">
                 <fieldset>
