@@ -1,8 +1,13 @@
 ﻿@model OrderEntry.Models.Orders.SeparationViewModel
 
 <title>New Separation</title>
-
-<h2>New Separation</h2>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <span class="Header">New Separation</span>
+    </div>
+</div>
+<br />
 
 <br />
 @using (Html.BeginForm())
@@ -195,7 +200,6 @@
             </div>
         </div>
         <br />
-        <br />
         <div class="row">
             <div class="col-md-5">
                 <fieldset>
@@ -246,6 +250,7 @@
 }
 
 <script>
+    //Creates a datepicker for shipdate. Minimum date is today
     $(function () {
         $(".shipDate").datepicker({
             showOn: "button",
@@ -261,57 +266,7 @@
                 $("#order_CUSTNA").attr("value", dropDownText);
             }
         });
-
-        $("form").submit(function () {
-            var dropDownText = $("#order_SPERSON1 option:selected").text();
-            if (dropDownText.length > 0) {
-                $("#order_SNAME1").attr("value", dropDownText);
-            }
-        });
-
-        $("#order_SHIP_VIA").autocomplete({
-            source: function (request, response) {
-                $.ajax({
-                    url: "GetShippingMethods",
-                    type: "POST",
-                    data: "text=" + $('#order_SHIP_VIA').val()
-                })
-
-                .success(function (data) {
-                    console.log(data);
-                    response(data);
-                })
-            }
-        });
-
     });
-
-    var populateCustomerAddress = function () {
-        var custNum = $('#order_CUSTNO').val();
-        $.ajax({
-            url: "PopulateAddress",
-            data: "custNum=" + custNum,
-            type: "POST"
-        })
-
-            .success(function (data) {
-                updateFields(data);
-            });
-    };
-
-    var updateFields = function (data) {
-        $('#order_CSNAME').val($.trim(data.CSNAME));
-        $("#order_CSADR1").val($.trim(data.CSADR1));
-        $("#order_CSADR2").val($.trim(data.CSADR2));
-        $("#order_CSADR3").val($.trim(data.CSADR3));
-        $("#order_CSCITY").val($.trim(data.CSCITY));
-        $("#order_CSST").val($.trim(data.CSST));
-        $("#order_CSZIP").val($.trim(data.CSZIP));
-        $("#order_CSCOUNTRY").val($.trim(data.CSCOUNTRY));
-        $("#order_CSATTN").val($.trim(data.CSATTN));
-        $("#order_SHIP_VIA").val($.trim(data.SHIP_VIA));
-    };
-
 
 </script>
 
