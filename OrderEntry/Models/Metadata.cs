@@ -7,6 +7,9 @@ using System.Web;
 
 namespace OrderEntry.Models
 {
+    /// <summary>
+    /// Metadata for Order Class
+    /// </summary>
     public class OrderMetadata
     {
         [DisplayName("Created Date")]
@@ -96,6 +99,9 @@ namespace OrderEntry.Models
         public string REMARKS { get; set; }
     }
 
+    /// <summary>
+    /// Metadata for Separation Class
+    /// </summary>
     public class SeparationMetaData
     {
         [MaxLength(10, ErrorMessage = "Maximum length is 10 characters.")]

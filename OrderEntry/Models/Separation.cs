@@ -36,6 +36,7 @@ namespace OrderEntry.Models
         public Nullable<decimal> SeparationCharges { get; set; }
         public string SeparationChargesDescription { get; set; }
 
+        //Sets all of the checkbox values to false so that nulls aren't entered into the database
         public Separation()
         {
             Disk = false;

@@ -147,6 +147,11 @@ namespace OrderEntry.Controllers
         }
 
         //[HttpPost]
+        /// <summary>
+        /// Populates the address fields based on the customer number selected in dropdown
+        /// </summary>
+        /// <param name="custNum"></param>
+        /// <returns></returns>
         public JsonResult PopulateAddress(double custNum)
         {
             var customer = transprintRepository.GetByCustNum(custNum);
@@ -155,6 +160,11 @@ namespace OrderEntry.Controllers
         }
 
         //[HttpPost]
+        /// <summary>
+        /// Retrieves list of shipping methods from database
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public JsonResult GetShippingMethods(String text)
         {
             var shippingMethods = orderRepository.GetAllActiveShippingMethods(text);
