@@ -9,9 +9,7 @@
 {
     var separation = Model.Separation;
     @Html.AntiForgeryToken()
-
     <div class="form-horizontal">
-
         @Html.ValidationSummary(true)
         <fieldset>
             <legend>Design Information</legend>
@@ -31,22 +29,21 @@
                         @Html.LabelFor(model => separation.DesignName, new { @class = "label-colon" })
                     </div>
                     <div class="col-md-7">
-                        @Html.TextBoxFor(model => separation.DesignName)
+                        @Html.TextBoxFor(model => separation.DesignName, new { @class = "shortInput" })
                         @Html.ValidationMessageFor(model => separation.DesignName)
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="col-md-5">
+                <div class="col-md-3 col-md-offset-1">
+                    <div class="col-md-4">
                         @Html.LabelFor(model => separation.Owner, new { @class = "label-colon" })
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                         @Html.TextBoxFor(model => separation.Owner)
                         @Html.ValidationMessageFor(model => separation.Owner)
                     </div>
                 </div>
             </div>
-
             <br />
             <div class="row">
                 <div class="col-md-4">
@@ -64,14 +61,12 @@
                         @Html.LabelFor(model => separation.CustDesignName, new { @class = "label-colon" })
                     </div>
                     <div class="col-md-7">
-                        @Html.TextBoxFor(model => separation.CustDesignName)
+                        @Html.TextBoxFor(model => separation.CustDesignName, new { @class = "shortInput" })
                         @Html.ValidationMessageFor(model => separation.CustDesignName)
                     </div>
                 </div>
-
-
-                <div class="col-md-4">
-                    <div class="col-md-5">
+                <div class="col-md-3 col-md-offset-1">
+                    <div class="col-md-4">
                         @Html.LabelFor(model => separation.SoldTo, new { @class = "label-colon" })
                     </div>
                     <div class="col-md-7">
@@ -79,143 +74,242 @@
                         @Html.ValidationMessageFor(model => separation.SoldTo)
                     </div>
                 </div>
-
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="col-md-5">
+                        @Html.LabelFor(model => separation.DesignCoordinates, new { @class = "label-colon" })
+                    </div>
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(model => separation.DesignCoordinates)
+                        @Html.ValidationMessageFor(model => separation.DesignCoordinates)
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-5">
+                        @Html.LabelFor(model => separation.DesignDescription, new { @class = "label-colon" })
+                    </div>
+                    <div class="col-md-7">
+                        @Html.TextAreaFor(model => separation.DesignDescription, new { @class = "text-area-small" })
+                        @Html.ValidationMessageFor(model => separation.DesignDescription)
+                    </div>
+                </div>
             </div>
             <br />
         </fieldset>
-
-
+        <br />
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-12">
                 <fieldset>
                     <legend>Data Format</legend>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            @Html.LabelFor(model => separation.Disk) &nbsp;
+                    <div class="col-md-3">
+                        <div class="col-md-5">
+                            &nbsp;  @Html.LabelFor(model => separation.Disk, new { @class = "label-colon" })
                         </div>
                         @Html.EditorFor(model => separation.Disk)
                         @Html.ValidationMessageFor(model => separation.Disk)
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            @Html.LabelFor(model => separation.Swatch) &nbsp;
+                    <div class="col-md-3 col-md-offset-1">
+                        <div class="col-md-5">
+                            &nbsp;  @Html.LabelFor(model => separation.Swatch, new { @class = "label-colon" })
                         </div>
                         @Html.EditorFor(model => separation.Swatch)
                         @Html.ValidationMessageFor(model => separation.Swatch)
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            @Html.LabelFor(model => separation.Artwork) &nbsp;
+                    <div class="col-md-3 col-md-offset-1">
+                        <div class="col-md-5">
+                            &nbsp;  @Html.LabelFor(model => separation.Artwork, new { @class = "label-colon" })
                         </div>
                         @Html.EditorFor(model => separation.Artwork)
                         @Html.ValidationMessageFor(model => separation.Artwork)
                     </div>
-
                 </fieldset>
             </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-5">
+                <fieldset>
+                    <legend>Scheduling</legend>
+                    <div class="row">
+                        <div class="col-md-5">
+                            &nbsp;  @Html.LabelFor(model => separation.DateReceived, new { @class = "label-colon" })
+                        </div>
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(model => separation.DateReceived, new { @class = "shipDate" })
+                            @Html.ValidationMessageFor(model => separation.DateReceived)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-5">
+                            &nbsp; @Html.LabelFor(model => separation.SentToSeparation, new { @class = "label-colon" })
+                        </div>
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(model => separation.SentToSeparation, new { @class = "shipDate" })
+                            @Html.ValidationMessageFor(model => separation.SentToSeparation)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-5">
+                            &nbsp;   @Html.LabelFor(model => separation.SentToEngraveDept, new { @class = "label-colon" })
+                        </div>
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(model => separation.SentToEngraveDept, new { @class = "shipDate" })
+                            @Html.ValidationMessageFor(model => separation.SentToEngraveDept)
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
             <div class="col-md-6">
+                <fieldset>
+                    <legend>Billing</legend>
+                    <div class="row">
+                        <div class="col-md-6">
+                            &nbsp; @Html.LabelFor(model => separation.SeparationCharges, new { @class = "label-colon" })
+                        </div>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => separation.SeparationCharges)
+                            @Html.ValidationMessageFor(model => separation.SeparationCharges)
 
-
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            &nbsp; @Html.LabelFor(model => separation.SeparationChargesDescription, new { @class = "label-colon" })
+                        </div>
+                        <div class="col-md-5">
+                            @Html.TextAreaFor(model => separation.SeparationChargesDescription, new { @class = "text-area-small" })
+                            @Html.ValidationMessageFor(model => separation.SeparationChargesDescription)
+                        </div>
+                    </div>
+                </fieldset>
             </div>
-
         </div>
-        <br /><br />
-
-        @*
-
+        <div class="row">
+            <div class="col-md-5">
+                <fieldset>
+                    <legend>Additional Information</legend>
+                    <div class="row">
+                        <div class="col-md-4">
+                            &nbsp; @Html.LabelFor(model => separation.ToBeEngraved, new { @class = "label-colon" })
+                        </div>
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => separation.ToBeEngraved)
+                            @Html.ValidationMessageFor(model => separation.ToBeEngraved)
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            &nbsp; @Html.LabelFor(model => separation.WebUpload, new { @class = "label-colon" })
+                        </div>
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => separation.WebUpload)
+                            @Html.ValidationMessageFor(model => separation.WebUpload)
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            &nbsp; @Html.LabelFor(model => separation.Comments, new { @class = "label-colon" })
+                        </div>
+                        @Html.TextAreaFor(model => separation.Comments, new { @class = "text-area" })
+                        @Html.ValidationMessageFor(model => separation.Comments)
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <br />
+        <br />
         <div class="form-group">
-            @Html.LabelFor(model => separation.DateReceived, new { @class = "label-colon" })
             <div class="col-md-10">
-                @Html.EditorFor(model => separation.DateReceived)
-                @Html.ValidationMessageFor(model => separation.DateReceived)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.ToBeEngraved, new { @class = "label-colon" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.ToBeEngraved)
-                @Html.ValidationMessageFor(model => separation.ToBeEngraved)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.SentToSeparation, new { @class = "label-colon" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.SentToSeparation)
-                @Html.ValidationMessageFor(model => separation.SentToSeparation)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.SentToEngraveDept, new { @class = "label-colon" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.SentToEngraveDept)
-                @Html.ValidationMessageFor(model => separation.SentToEngraveDept)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.DesignDescription, new { @class = "label-colon" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.DesignDescription)
-                @Html.ValidationMessageFor(model => separation.DesignDescription)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.DesignCoordinates, new { @class = "label-colon" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.DesignCoordinates)
-                @Html.ValidationMessageFor(model => separation.DesignCoordinates)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.WebUpload, new { @class = "label-colon" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.WebUpload)
-                @Html.ValidationMessageFor(model => separation.WebUpload)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.Comments, new { @class = "label-colon" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.Comments)
-                @Html.ValidationMessageFor(model => separation.Comments)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.SeparationCharges, new { @class = "label-colon" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.SeparationCharges)
-                @Html.ValidationMessageFor(model => separation.SeparationCharges)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => separation.SeparationChargesDescription, new { @class = "label-colon" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => separation.SeparationChargesDescription)
-                @Html.ValidationMessageFor(model => separation.SeparationChargesDescription)
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
-        </div>*@
+        </div>
     </div>
 }
-
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Separations", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<script>
+    $(function () {
+        $(".shipDate").datepicker({
+            showOn: "button",
+            buttonImage: "../Images/Calendar.gif",
+            buttonImageOnly: true,
+            buttonText: "Select date",
+            minDate: 0
+        });
+
+        $("form").submit(function () {
+            var dropDownText = $("#order_CUSTNO option:selected").text();
+            if (dropDownText.length > 0) {
+                $("#order_CUSTNA").attr("value", dropDownText);
+            }
+        });
+
+        $("form").submit(function () {
+            var dropDownText = $("#order_SPERSON1 option:selected").text();
+            if (dropDownText.length > 0) {
+                $("#order_SNAME1").attr("value", dropDownText);
+            }
+        });
+
+        $("#order_SHIP_VIA").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "GetShippingMethods",
+                    type: "POST",
+                    data: "text=" + $('#order_SHIP_VIA').val()
+                })
+
+                .success(function (data) {
+                    console.log(data);
+                    response(data);
+                })
+            }
+        });
+
+    });
+
+    var populateCustomerAddress = function () {
+        var custNum = $('#order_CUSTNO').val();
+        $.ajax({
+            url: "PopulateAddress",
+            data: "custNum=" + custNum,
+            type: "POST"
+        })
+
+            .success(function (data) {
+                updateFields(data);
+            });
+    };
+
+    var updateFields = function (data) {
+        $('#order_CSNAME').val($.trim(data.CSNAME));
+        $("#order_CSADR1").val($.trim(data.CSADR1));
+        $("#order_CSADR2").val($.trim(data.CSADR2));
+        $("#order_CSADR3").val($.trim(data.CSADR3));
+        $("#order_CSCITY").val($.trim(data.CSCITY));
+        $("#order_CSST").val($.trim(data.CSST));
+        $("#order_CSZIP").val($.trim(data.CSZIP));
+        $("#order_CSCOUNTRY").val($.trim(data.CSCOUNTRY));
+        $("#order_CSATTN").val($.trim(data.CSATTN));
+        $("#order_SHIP_VIA").val($.trim(data.SHIP_VIA));
+    };
+
+
+</script>
+
