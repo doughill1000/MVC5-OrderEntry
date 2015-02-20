@@ -16,7 +16,6 @@
         @Html.ValidationSummary(true)
         <fieldset>
             <legend>Customer</legend>
-
             <div class="row">
                 <div class="col-md-6">
                     <div class="col-md-4">
@@ -32,9 +31,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="col-md-3">
-
                         @Html.LabelFor(model => order.SPERSON1, new { @class = "label-colon" })
-
                     </div>
                     <div class="col-md-9">
                         @Html.DropDownListFor(model => order.SPERSON1, Model.SalesPersons, "---Select a Sales Person---", new { @class = "dropdown" })
@@ -43,7 +40,6 @@
                     </div>
                 </div>
             </div>
-
             <br />
             <div class="row">
                 <div class="col-md-6">
@@ -57,12 +53,9 @@
                 </div>
                 <div class="col-md-6"></div>
             </div>
-
         </fieldset>
-
         <br />
         <br />
-
         <div class="row">
             <div class="col-md-12">
                 <fieldset>
@@ -185,9 +178,7 @@
                         <div class="col-md-6"></div>
                     </div>
                     <br />
-
                     <div class="row">
-
                         <div class="col-md-6">
                             <div class="col-md-4">
                                 @Html.LabelFor(model => order.SDATE, new { @class = "label-colon" })
@@ -200,7 +191,6 @@
                         <div class="col-md-6"></div>
                     </div>
                     <br />
-
                     <div class="row">
 
                         <div class="col-md-6">
@@ -215,16 +205,12 @@
                         </div>
                         <div class="col-md-6"></div>
                     </div>
-
                 </fieldset>
-
                 <div class="col-md-1"></div>
             </div>
         </div>
         <hr />
         <br />
-
-
         <div class="row">
             <div class="col-md-8">
                 <div class="col-md-3">
@@ -241,18 +227,19 @@
             </div>
         </div>
         <br />
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+        <div class="row">
+            <div class="col-md-12">
+                &nbsp;<input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                &nbsp; @Html.ActionLink("Back to Orders", "Index")
             </div>
         </div>
     </div>
 }
-
-
-<div>
-    @Html.ActionLink("Back to Orders", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
