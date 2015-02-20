@@ -35,5 +35,14 @@ namespace OrderEntry.Models
         public string Comments { get; set; }
         public Nullable<decimal> SeparationCharges { get; set; }
         public string SeparationChargesDescription { get; set; }
+
+        public Separation()
+        {
+            Disk = false;
+            Swatch = false;
+            Artwork = false;
+            ToBeEngraved = false;
+            WebUpload = false;
+        }
     }
 }
