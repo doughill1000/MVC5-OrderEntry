@@ -143,7 +143,7 @@
                             &nbsp;  @Html.LabelFor(model => separation.DateReceived, new { @class = "label-colon" })
                         </div>
                         <div class="col-md-7">
-                            @Html.TextBoxFor(model => separation.DateReceived, new { @class = "shipDate" })
+                            @Html.TextBoxFor(model => separation.DateReceived, new { @class = "datePicker" })
                             @Html.ValidationMessageFor(model => separation.DateReceived)
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                             &nbsp; @Html.LabelFor(model => separation.SentToSeparation, new { @class = "label-colon" })
                         </div>
                         <div class="col-md-7">
-                            @Html.TextBoxFor(model => separation.SentToSeparation, new { @class = "shipDate" })
+                            @Html.TextBoxFor(model => separation.SentToSeparation, new { @class = "datePicker" })
                             @Html.ValidationMessageFor(model => separation.SentToSeparation)
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                             &nbsp;   @Html.LabelFor(model => separation.SentToEngraveDept, new { @class = "label-colon" })
                         </div>
                         <div class="col-md-7">
-                            @Html.TextBoxFor(model => separation.SentToEngraveDept, new { @class = "shipDate" })
+                            @Html.TextBoxFor(model => separation.SentToEngraveDept, new { @class = "datePicker" })
                             @Html.ValidationMessageFor(model => separation.SentToEngraveDept)
                         </div>
                     </div>
@@ -250,22 +250,30 @@
 }
 
 <script>
-    //Creates a datepicker for shipdate. Minimum date is today
+    //Creates a datepicker for datepicker
     $(function () {
-        $(".shipDate").datepicker({
+        $(".datePicker").datepicker({
             showOn: "button",
             buttonImage: "../Images/Calendar.gif",
             buttonImageOnly: true,
             buttonText: "Select date",
-            minDate: 0
         });
 
-        $("form").submit(function () {
+        //Submits Cusna value from dropdown
+       /* $("form").submit(function () {
             var dropDownText = $("#order_CUSTNO option:selected").text();
             if (dropDownText.length > 0) {
                 $("#order_CUSTNA").attr("value", dropDownText);
             }
-        });
+        });*/
+
+        //Adds today's date as default for DateReceived
+            var today = new Date();
+            var month = today.getMonth() + 1;
+            var year = today.getFullYear();
+            var day = today.getDate();
+            var formattedDate = month + '/' + day + '/' + year;
+            $("#separation_DateReceived").val(formattedDate);
     });
 
 </script>
