@@ -105,6 +105,11 @@ ui-datepicker-trigger
     width:250px;
 }
 
-body{
-    background-color:whitesmoke;
+body {
+    background-color: whitesmoke;
 }
+
+.table-hover > tbody > tr:hover {
+  background-color: #DCDCDC;
+}
+

@@ -13,7 +13,7 @@
 <p>
     @Html.ActionLink("Create New Separation", "Create")
 </p>
-<table class="table">
+<table class="table table-condensed table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.DesignNum)
@@ -26,7 +26,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SoldTo)
-        </th>     
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.DateReceived)
         </th>
@@ -42,38 +42,39 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DesignNum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DesignName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Owner)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoldTo)
-        </td>       
-        <td>
-            @Html.DisplayFor(modelItem => item.DateReceived)
-        </td>       
-        <td>
-            @Html.DisplayFor(modelItem => item.SentToSeparation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SentToEngraveDept)
-        </td>       
-        <td>
-            @Html.DisplayFor(modelItem => item.SeparationCharges)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SeparationId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SeparationId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SeparationId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesignNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesignName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoldTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateReceived)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SentToSeparation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SentToEngraveDept)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeparationCharges)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SeparationId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SeparationId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SeparationId })
+            </td>
+        </tr>
+    }
 
 </table>
