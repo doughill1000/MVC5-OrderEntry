@@ -17,15 +17,6 @@ namespace OrderEntry
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                        "~/Scripts/jquery-ui-1.11.2.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jquerydatatables").Include(
-                       "~/Scripts/Datatables-1.10.4/jquery.dataTables.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jquerydatatablescolumnfilter").Include(
-                       "~/Scripts/jquery.dataTables.columnFilter.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/moment").Include(
-                        "~/Scripts/moment.min.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/orders").Include(
                         "~/Scripts/Orders/Orders.js"));
 

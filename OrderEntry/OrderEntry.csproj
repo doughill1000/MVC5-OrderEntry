@@ -238,6 +238,7 @@
     </Compile>
     <Compile Include="Models\TransprintTables\TransprintViewModel.cs" />
     <Compile Include="Models\Utility\JsonNetResult.cs" />
+    <Compile Include="Models\Utility\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

@@ -4,6 +4,7 @@ using System.Data.Entity.SqlServer;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using OrderEntry.Models.Utility;
 
 namespace OrderEntry.Models.Repository
 {
@@ -35,7 +36,7 @@ namespace OrderEntry.Models.Repository
                 .Select(c => new SelectListItem
             {
                 Value = c.CUSTNO.ToString().Trim(),
-                Text = c.CUSTNA, 
+                Text = c.CUSTNA.ConvertToTitleCase()
                 
             }).OrderBy(c => c.Text).ToList();
 

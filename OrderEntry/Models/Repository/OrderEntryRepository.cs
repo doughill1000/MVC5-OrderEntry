@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.SqlServer;
 using System.Linq;
 using System.Web.Mvc;
+using OrderEntry.Models.Utility;
 
 
 namespace OrderEntry.Models.Repository
@@ -110,7 +111,7 @@ namespace OrderEntry.Models.Repository
                 .Select(s => new SelectListItem
                 {
                     Value = s.SalesId.ToString(),
-                    Text = s.Name
+                    Text = s.Name.ConvertToTitleCase()
 
                 }).OrderBy(c => c.Text).ToList();
 

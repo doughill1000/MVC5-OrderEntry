@@ -234,16 +234,16 @@
         </div>
         <br />
         <br />
-        <div class="form-group">
-            <div class="col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+        <div class="row">
+            <div class="col-md-1">
+                <input type="submit" value="Create" class="btn btn-success" />
             </div>
+           <div class="col-md-1">
+              @Html.ActionLink("Back to Separations", "Index", null, new { @class = "btn btn-primary" })
+           </div>
         </div>
     </div>
 }
-<div>
-    @Html.ActionLink("Back to Separations", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
@@ -259,22 +259,17 @@
             buttonText: "Select date",
         });
 
-        //Submits Cusna value from dropdown
-       /* $("form").submit(function () {
-            var dropDownText = $("#order_CUSTNO option:selected").text();
-            if (dropDownText.length > 0) {
-                $("#order_CUSTNA").attr("value", dropDownText);
-            }
-        });*/
+       //Adds today's date as default for DateReceived
+        var formattedDate = function FormatTodaysDate() {
+           var today = new Date();
+           var month = today.getMonth() + 1;
+           var year = today.getFullYear();
+           var day = today.getDate();
+           var formattedDate = month + '/' + day + '/' + year;
+           return formattedDate;
+        };
 
-        //Adds today's date as default for DateReceived
-            var today = new Date();
-            var month = today.getMonth() + 1;
-            var year = today.getFullYear();
-            var day = today.getDate();
-            var formattedDate = month + '/' + day + '/' + year;
-            $("#separation_DateReceived").val(formattedDate);
+        $("#separation_DateReceived").val(formattedDate);       
     });
-
 </script>
 

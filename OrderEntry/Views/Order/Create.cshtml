@@ -227,17 +227,14 @@
             </div>
         </div>
         <br />
-        <div class="row">
-            <div class="col-md-12">
-                &nbsp;<input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="col-md-12">
-                &nbsp; @Html.ActionLink("Back to Orders", "Index")
-            </div>
-        </div>
+       <div class="row">
+          <div class="col-md-1">
+             <input type="submit" value="Create" class="btn btn-success" />
+          </div>
+          <div class="col-md-1">
+             @Html.ActionLink("Back to Separations", "Index", null, new { @class = "btn btn-primary" })
+          </div>
+       </div>
     </div>
 }
 
